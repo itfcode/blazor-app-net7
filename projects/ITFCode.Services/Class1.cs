@@ -1,4 +1,4 @@
-﻿namespace ITFCode.Core.DTO
+﻿namespace ITFCode.Services
 {
     public class Class1
     {

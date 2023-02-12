@@ -10,7 +10,7 @@ namespace ITFCode.Core.Domain.DataContext
     public abstract class ApplicationDbContextCore : IdentityDbContext<ApplicationUser, ApplicationRole, string, ApplicationUserClaim,
         ApplicationUserRole, ApplicationUserLogin, ApplicationRoleClaim, ApplicationUserToken>, IApplicationDbContextCore
     {
-        public ApplicationDbContextCore(DbContextOptions<ApplicationDbContextCore> options)
+        public ApplicationDbContextCore(DbContextOptions options)
             : base(options)
         {
         }
