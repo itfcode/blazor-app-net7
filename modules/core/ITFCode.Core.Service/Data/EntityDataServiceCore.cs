@@ -27,11 +27,11 @@ namespace ITFCode.Core.Service.Data
 
         #region IEntityDataService Implementation
 
-        public async Task<TEntityDTO> Get(object[] keys, CancellationToken cancellationToken = default)
-            => Map(await _repository.Get(keys, cancellationToken));
+        public virtual async Task<TEntityDTO> Get(object[] keys, CancellationToken cancellationToken = default)
+            => Map(await _repository.Find(keys, cancellationToken));
 
-        public virtual async Task<IEnumerable<TEntityDTO>> GetAll(CancellationToken cancellationToken = default)
-            => Map(await _repository.GetAll().Take(100).ToArray());
+        public virtual async Task<IEnumerable<TEntityDTO>> GetAll(CancellationToken cancellationToken = default) => throw new NotImplementedException();
+          //  => Map(await _repository.GetAll().Take(100).ToArray());
 
         #endregion
 

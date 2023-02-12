@@ -53,13 +53,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Core.Domain", "modu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Core.DTO", "modules\core\ITFCode.Core.DTO\ITFCode.Core.DTO.csproj", "{40BE9809-F9D7-4801-A659-3C3C613FE551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.DTO", "projects\ITFCode.DTO\ITFCode.DTO.csproj", "{9B8690EA-8AC1-4982-A691-EA06C7FCCCA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.DTO", "projects\ITFCode.DTO\ITFCode.DTO.csproj", "{9B8690EA-8AC1-4982-A691-EA06C7FCCCA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Domain", "projects\ITFCode.Domain\ITFCode.Domain.csproj", "{A9087347-0879-47AA-A161-19D411E18868}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Domain", "projects\ITFCode.Domain\ITFCode.Domain.csproj", "{A9087347-0879-47AA-A161-19D411E18868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Services", "projects\ITFCode.Services\ITFCode.Services.csproj", "{F6C5533E-5C96-47EA-921D-017AA51667B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Services", "projects\ITFCode.Services\ITFCode.Services.csproj", "{F6C5533E-5C96-47EA-921D-017AA51667B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Core.Service", "modules\core\ITFCode.Core.Service\ITFCode.Core.Service.csproj", "{6F3F1ADF-3763-4484-B6E5-61F21BC70B43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Core.Service", "modules\core\ITFCode.Core.Service\ITFCode.Core.Service.csproj", "{6F3F1ADF-3763-4484-B6E5-61F21BC70B43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Core.Web", "modules\core\ITFCode.Core.Web\ITFCode.Core.Web.csproj", "{316FED7C-A6F8-4022-ACDB-CF3014681608}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Extensions.NumberExtendors", "modules\extensions\ITFCode.Extensions.NumberExtendors\ITFCode.Extensions.NumberExtendors.csproj", "{CC3C0D20-668B-4E0E-BE20-E911043DD599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,6 +155,14 @@ Global
 		{6F3F1ADF-3763-4484-B6E5-61F21BC70B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F3F1ADF-3763-4484-B6E5-61F21BC70B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F3F1ADF-3763-4484-B6E5-61F21BC70B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316FED7C-A6F8-4022-ACDB-CF3014681608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316FED7C-A6F8-4022-ACDB-CF3014681608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316FED7C-A6F8-4022-ACDB-CF3014681608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316FED7C-A6F8-4022-ACDB-CF3014681608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3C0D20-668B-4E0E-BE20-E911043DD599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3C0D20-668B-4E0E-BE20-E911043DD599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3C0D20-668B-4E0E-BE20-E911043DD599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3C0D20-668B-4E0E-BE20-E911043DD599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +194,8 @@ Global
 		{A9087347-0879-47AA-A161-19D411E18868} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 		{F6C5533E-5C96-47EA-921D-017AA51667B6} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 		{6F3F1ADF-3763-4484-B6E5-61F21BC70B43} = {024AFB3F-E0F0-4DE0-B625-2DD3D0F8C8D0}
+		{316FED7C-A6F8-4022-ACDB-CF3014681608} = {024AFB3F-E0F0-4DE0-B625-2DD3D0F8C8D0}
+		{CC3C0D20-668B-4E0E-BE20-E911043DD599} = {C7CFAE53-BCBB-4C01-B4B0-39FA489F556E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83B52C76-66B1-46D1-8EA7-96DEB1478711}

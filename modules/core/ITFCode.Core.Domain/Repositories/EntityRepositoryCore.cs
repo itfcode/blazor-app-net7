@@ -38,7 +38,7 @@ namespace ITFCode.Core.Domain.Repositories
         public async Task<TEntity> Get(object key, CancellationToken cancellationToken = default)
             => await Get(new object[] { key }, cancellationToken);
 
-        public async Task<TEntity> Get(object[] keys, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> Get(object[] keys, CancellationToken cancellationToken = default)
         {
             var entity = await DbSet.FindAsync(keys, cancellationToken);
 
@@ -48,19 +48,19 @@ namespace ITFCode.Core.Domain.Repositories
                 throw new EntityNotFoundException(keys, typeof(TEntity));
         }
 
-        public async Task<TEntity> Find(object key, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> Find(object key, CancellationToken cancellationToken = default)
             => await Find(new object[] { key }, cancellationToken);
 
-        public async Task<TEntity> Find(object[] keys, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> Find(object[] keys, CancellationToken cancellationToken = default)
             => await DbSet.FindAsync(keys, cancellationToken);
 
-        public async Task<bool> Exists(object key, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> Exists(object key, CancellationToken cancellationToken = default)
             => await Exists(new object[] { key }, cancellationToken);
 
-        public async Task<bool> Exists(object[] keys, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> Exists(object[] keys, CancellationToken cancellationToken = default)
             => (await Find(keys, cancellationToken) is not null);
 
-        public async Task Add(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task Add(TEntity entity, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace ITFCode.Core.Domain.Repositories
             }
         }
 
-        public async Task AddRange(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+        public virtual async Task AddRange(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace ITFCode.Core.Domain.Repositories
             }
         }
 
-        public async Task Update(object[] keys, Action<TEntity> updater, CancellationToken cancellationToken = default)
+        public virtual async Task Update(object[] keys, Action<TEntity> updater, CancellationToken cancellationToken = default)
         {
             var entity = await Get(keys, cancellationToken);
 
@@ -93,7 +93,7 @@ namespace ITFCode.Core.Domain.Repositories
             Update(entity);
         }
 
-        public async Task UpdateRange(IEnumerable<object[]> keys, Action<TEntity> updater, CancellationToken cancellationToken = default)
+        public virtual async Task UpdateRange(IEnumerable<object[]> keys, Action<TEntity> updater, CancellationToken cancellationToken = default)
         {
             ValidateParam(keys, nameof(keys));
 
@@ -123,7 +123,7 @@ namespace ITFCode.Core.Domain.Repositories
             }
         }
 
-        public async Task Delete(object[] keys, CancellationToken cancellationToken = default)
+        public virtual async Task Delete(object[] keys, CancellationToken cancellationToken = default)
         {
             try
             {
