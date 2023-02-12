@@ -1,12 +1,12 @@
 ﻿namespace ITFCode.Core
 {
     // https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose
-    public abstract class DisposablePattern : IDisposable
+    public abstract class DisposableBaseCore : IDisposable
     {
         // To detect redundant calls
         private bool _disposedValue;
 
-        ~DisposablePattern() => Dispose(false);
+        ~DisposableBaseCore() => Dispose(false);
 
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()

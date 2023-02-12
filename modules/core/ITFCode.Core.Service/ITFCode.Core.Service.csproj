@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mapping\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITFCode.Core.Domain\ITFCode.Core.Domain.csproj" />
+    <ProjectReference Include="..\ITFCode.Core.DTO\ITFCode.Core.DTO.csproj" />
+    <ProjectReference Include="..\ITFCode.Core\ITFCode.Core.csproj" />
+  </ItemGroup>
+
 </Project>
