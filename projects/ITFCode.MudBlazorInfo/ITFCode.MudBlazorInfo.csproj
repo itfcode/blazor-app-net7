@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+	  <TargetFramework>net7.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="6.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\core\ITFCode.Core.Domain\ITFCode.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\modules\core\ITFCode.Core.DTO\ITFCode.Core.DTO.csproj" />
+    <ProjectReference Include="..\..\modules\core\ITFCode.Core.Service\ITFCode.Core.Service.csproj" />
+    <ProjectReference Include="..\..\modules\core\ITFCode.Core.Web\ITFCode.Core.Web.csproj" />
+    <ProjectReference Include="..\..\modules\core\ITFCode.Core\ITFCode.Core.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.BooleanExtendors\ITFCode.Extensions.BooleanExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.ComparableExtendors\ITFCode.Extensions.ComparableExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.DateTimeExtendors\ITFCode.Extensions.DateTimeExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.DateTimeNullableExtendors\ITFCode.Extensions.DateTimeNullableExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.DateTimeOffsetExtendors\ITFCode.Extensions.DateTimeOffsetExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.DateTimeOffsetNullableExtendors\ITFCode.Extensions.DateTimeOffsetNullableExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.DictionaryExtendors\ITFCode.Extensions.DictionaryExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.EnumerableExtendors\ITFCode.Extensions.EnumerableExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.JavaScriptEnxtendors\ITFCode.Extensions.JavaScriptEnxtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.ListExtendors\ITFCode.Extensions.ListExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.NumberExtendors\ITFCode.Extensions.NumberExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.ObjectExtendors\ITFCode.Extensions.ObjectExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.QueryableExtendors\ITFCode.Extensions.QueryableExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.StringExtendors\ITFCode.Extensions.StringExtendors.csproj" />
+    <ProjectReference Include="..\..\modules\extensions\ITFCode.Extensions.TypeExtendors\ITFCode.Extensions.TypeExtendors.csproj" />
+    <ProjectReference Include="..\ITFCode.Domain\ITFCode.Domain.csproj" />
+    <ProjectReference Include="..\ITFCode.DTO\ITFCode.DTO.csproj" />
+    <ProjectReference Include="..\ITFCode.Services\ITFCode.Services.csproj" />
+  </ItemGroup>
+
+</Project>

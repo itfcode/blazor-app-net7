@@ -1,0 +1,32 @@
+﻿@page "/library-info"
+
+<h3>LibaryInfo</h3>
+
+<MudPaper Class="pa-16 ma-2" Elevation="3">
+
+    <MudExpansionPanels>
+
+        @foreach (var item in _expansionPanels)
+        {
+            <MudExpansionPanel @bind-IsExpanded="item.IsExpanded">
+                <TitleContent>
+                    <div class="d-flex">
+                        <MudIcon Icon="@(item.IsExpanded ? Icons.Material.Filled.FolderOpen : Icons.Material.Filled.Folder)"
+                             Color="Color.Info" class="mr-3"></MudIcon>
+                        <MudText><code>@item.Name</code></MudText>
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    Panel Content
+                    <hr />
+                    Panel Content
+                </ChildContent>
+            </MudExpansionPanel>
+        }
+    </MudExpansionPanels>
+
+</MudPaper>
+
+@code {
+
+}
