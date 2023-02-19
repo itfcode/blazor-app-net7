@@ -1,0 +1,32 @@
+﻿@using System.Reflection
+@using Static
+
+@if (Method is null)
+{
+    <MudAlert Severity="Severity.Error">
+        Method not defined
+    </MudAlert>
+}
+else
+{
+    <code>
+        <span class="keyword">@AccessModificator static </span>
+        <span class="type">@RegexHelper.SimplifyTypes(Method.ReturnType.Name)</span>
+        <span style="margin-left:3px;">@Method.Name</span>
+        <span>(<span class="keyword">this</span></span>
+        <span>)</span>
+    </code>
+}
+
+@code {
+
+    [Parameter]
+    public MethodInfo Method { get; set; }
+
+    private string AccessModificator =>
+        Method.IsPublic ? "public" :
+        Method.IsFamily ? "protected" :
+        Method.IsFamilyAndAssembly ? "internal protected" :
+        Method.IsAssembly ? "internal" :
+        Method.IsPrivate ? "private" : "NOT_DEFINED";
+}

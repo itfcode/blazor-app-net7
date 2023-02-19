@@ -45,7 +45,8 @@ namespace ITFCode.MudBlazorInfo.Pages
 
             foreach (var namespaceName in _namespaceNames)
             {
-                _expansionPanels.Add(new ExpansionPanelSetting { Name = namespaceName });
+                var panelSettings = new ExpansionPanelSetting { Name = namespaceName };
+
 
                 var classesInNamespace = Assembly.Load(namespaceName)
                     .GetTypes()
@@ -61,9 +62,18 @@ namespace ITFCode.MudBlazorInfo.Pages
 
                     foreach (var method in methods)
                     {
-                        Console.WriteLine($"  { method.Name }, { Clear(method.ToString()) }");
+                        panelSettings.Methods.Add(method);
+
+                        // Console.WriteLine($"  { method.Name }, { Clear(method.ToString()) }");
+                        var parameters = method.GetParameters();
+                        foreach (var parameter in parameters)
+                        {
+                            // Console.WriteLine($"\t\t {Clear(parameter.ParameterType.Name)} {parameter.Name} ");
+                        }
                     }
                 }
+
+                _expansionPanels.Add(panelSettings);
             }
         }
 
@@ -75,10 +85,11 @@ namespace ITFCode.MudBlazorInfo.Pages
             foreach (var item in TypeAliases.All)
             {
                 output = Regex.Replace(output, item.Key, item.Value);
+                output = Regex.Replace(output, item.Key, item.Value);
             }
 
             // for Nullable
-            
+
             var patterns = new Dictionary<string, string> 
             {
                 {@"System\.Nullable`1\[(\w+)\]", "$1?" },
@@ -91,7 +102,6 @@ namespace ITFCode.MudBlazorInfo.Pages
                 output = Regex.Replace(output, pattern.Key, pattern.Value);
             }
 
-
             return output;
         }
     }
@@ -100,10 +110,10 @@ namespace ITFCode.MudBlazorInfo.Pages
     {
         public bool IsExpanded { get; set; }
         public string Name { get; set; }
+        public IList<MethodInfo> Methods { get; set; } = new List<MethodInfo>();
 
         public ExpansionPanelSetting() { }
     }
-
 
     public static class TypeAliases
     {

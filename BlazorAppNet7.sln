@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Core.Web", "modules
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Extensions.NumberExtendors", "modules\extensions\ITFCode.Extensions.NumberExtendors\ITFCode.Extensions.NumberExtendors.csproj", "{CC3C0D20-668B-4E0E-BE20-E911043DD599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.MudBlazorInfo", "projects\ITFCode.MudBlazorInfo\ITFCode.MudBlazorInfo.csproj", "{DFCBCD06-81F7-4C48-AC12-9A20577DD5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.MudBlazorInfo", "projects\ITFCode.MudBlazorInfo\ITFCode.MudBlazorInfo.csproj", "{DFCBCD06-81F7-4C48-AC12-9A20577DD5C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,20 +12,59 @@
                 <TitleContent>
                     <div class="d-flex">
                         <MudIcon Icon="@(item.IsExpanded ? Icons.Material.Filled.FolderOpen : Icons.Material.Filled.Folder)"
-                             Color="Color.Info" class="mr-3"></MudIcon>
-                        <MudText><code>@item.Name</code></MudText>
+                             Color="Color.Primary" class="mr-3"></MudIcon>
+                        <MudText Style="width:100%;">
+                            <code>@item.Name</code>
+                            <code style="float:right;margin-right:24px;">@item.Methods.Count methods</code>
+                        </MudText>
                     </div>
                 </TitleContent>
                 <ChildContent>
-                    Panel Content
-                    <hr />
-                    Panel Content
+                    <MudList Clickable="false">
+                        @foreach (var method in @item.Methods)
+                        {
+                            <MudListItem>
+                                <ExtMethodInfo Method="method" />
+                            </MudListItem>
+                        }
+                    </MudList>
                 </ChildContent>
             </MudExpansionPanel>
         }
     </MudExpansionPanels>
 
 </MudPaper>
+
+<style>
+    .keyword {
+        color: var(--mud-palette-info-darken);
+    }
+    /* Blue */
+    .string {
+        color: #d69d85;
+    }
+    /* Light Red */
+    .comment {
+        color: #16A085;
+    }
+    /* Green */
+    .type {
+        color: #16A085;
+    }
+    /* Turquoise */
+    .operator {
+        color: #d4d4d4;
+    }
+    /* Light Gray */
+    .number {
+        color: #b5cea8;
+    }
+    /* Olive Green */
+    .preprocessor {
+        color: #cd3131;
+    }
+    /* Red */
+</style>
 
 @code {
 
