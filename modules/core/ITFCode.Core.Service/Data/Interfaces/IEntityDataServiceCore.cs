@@ -1,6 +1,6 @@
 ﻿using ITFCode.Core.DTO.Entities.Base.Interfaces;
 
-namespace ITFCode.Core.Service.Data.Base
+namespace ITFCode.Core.Service.Data.Base.Interfaces
 {
     public interface IEntityDataServiceCore<TEntityDTO> : IDisposable
         where TEntityDTO : class, IEntityDTO

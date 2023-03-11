@@ -162,6 +162,7 @@ namespace ITFCode.Core.Domain.Repositories
         {
             if (Context.Entry(entity).State == EntityState.Detached)
                 DbSet.Attach(entity);
+
             return entity;
         }
 

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using ITFCode.Core.Domain.Entities.Base.Interfaces;
-using ITFCode.Core.Domain.Repositories;
 using ITFCode.Core.Domain.Repositories.Interfaces;
 using ITFCode.Core.DTO.Entities.Base.Interfaces;
-using ITFCode.Core.Service.Data.Base;
+using ITFCode.Core.Service.Data.Base.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace ITFCode.Core.Service.Data
 {
@@ -13,14 +13,17 @@ namespace ITFCode.Core.Service.Data
         where TUnitOfWork : class, IUnitOfWorkCore
         where TRepository : class, IEntityRepositoryCore<TEntity>
     {
-        // protected ILogger<ReadOnlyDataService<TRepository, TEntity, TEntityModel, TKey>> _logger;
-        protected IMapper _mapper;
+        protected readonly IMapper _mapper;
+        protected readonly ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> _logger;
         protected readonly TRepository _repository;
         protected readonly TUnitOfWork _unitOfWork;
 
-        public EntityDataServiceCore(IMapper mapper, TUnitOfWork unitOfWork, TRepository repository)
+        public EntityDataServiceCore(IMapper mapper,
+            ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> logger,
+            TUnitOfWork unitOfWork, TRepository repository)
         {
             _mapper = mapper;
+            _logger = logger;
             _unitOfWork = unitOfWork;
             _repository = repository;
         }
@@ -30,8 +33,8 @@ namespace ITFCode.Core.Service.Data
         public virtual async Task<TEntityDTO> Get(object[] keys, CancellationToken cancellationToken = default)
             => Map(await _repository.Find(keys, cancellationToken));
 
-        public virtual async Task<IEnumerable<TEntityDTO>> GetAll(CancellationToken cancellationToken = default) => throw new NotImplementedException();
-          //  => Map(await _repository.GetAll().Take(100).ToArray());
+        public virtual async Task<IEnumerable<TEntityDTO>> GetAll(CancellationToken cancellationToken = default)
+            => throw new NotImplementedException();
 
         #endregion
 
@@ -43,7 +46,5 @@ namespace ITFCode.Core.Service.Data
         protected IEnumerable<TEntityDTO> Map(IEnumerable<TEntity> entities) => _mapper.Map<IEnumerable<TEntityDTO>>(entities);
 
         #endregion
-
     }
-
 }
