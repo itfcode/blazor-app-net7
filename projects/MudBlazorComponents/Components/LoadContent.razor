@@ -1,0 +1,29 @@
+﻿@inherits Components.Base.LoadingComponent
+
+@if (LoadFailed)
+{
+    <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">
+        @(LoadError?.Message ?? "Error not defined")
+    </MudAlert>
+}
+else if (Loading)
+{
+    <MudContainer Style="text-align:center;min-height:300px;margin-top:100px;">
+        <MudProgressCircular Color="Color.Primary"
+                         Style="height:140px;width:140px;"
+                         Indeterminate="true" />
+    </MudContainer>
+}
+else
+{
+    @InternalContent
+}
+
+@code {
+    #region Properties
+
+    [Parameter]
+    public RenderFragment? InternalContent { get; set; }
+
+    #endregion
+}

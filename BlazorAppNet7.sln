@@ -71,9 +71,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.MudBlazorInfo.Test"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{AB92BD91-968E-4681-BB49-95CD0FFD1340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.MudBlazorVocabulary", "projects\ITFCode.MudBlazorVocabulary\ITFCode.MudBlazorVocabulary.csproj", "{9152BF58-00E2-4FC1-9F4F-55C209694842}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.MudBlazorVocabulary", "projects\ITFCode.MudBlazorVocabulary\ITFCode.MudBlazorVocabulary.csproj", "{9152BF58-00E2-4FC1-9F4F-55C209694842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudBlazorComponents", "projects\MudBlazorComponents\MudBlazorComponents.csproj", "{96711FDC-130E-482B-AD3A-9E0915BEAEFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazorComponents", "projects\MudBlazorComponents\MudBlazorComponents.csproj", "{96711FDC-130E-482B-AD3A-9E0915BEAEFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
