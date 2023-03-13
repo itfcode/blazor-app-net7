@@ -1,0 +1,123 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+
+<MudText Class="mb-4">Current count: @currentCount</MudText>
+
+<MudButton Color="Color.Tertiary" Variant="Variant.Filled"
+           @onclick="IncrementCount">Load Vocabulary</MudButton>
+
+<br />
+
+<MudGrid>
+    <MudItem xs="10">
+        <MudTable Items="_dictionary" Hover="true"
+                  Breakpoint="Breakpoint.Sm"
+                  LoadingProgressColor="Color.Info">
+
+            <HeaderContent>
+
+                <MudTh Class="th-header-original" Style="width:50%;">Original</MudTh>
+
+                <MudTh Class="th-header-translation-ru1" Style="width:50%;">
+
+                    <span style="margin:auto;">Translation</span>
+
+                    <MudToggleIconButton Toggled="@AlarmOn"
+                                         ToggledChanged="OnToggledChanged"
+                                         Icon="@Icons.Material.Filled.VisibilityOff"
+                                         Color="@Color.Error"
+                                         Title="Hide Translation"
+                                         ToggledIcon="@Icons.Material.Filled.Visibility"
+                                         ToggledColor="@Color.Primary"
+                                         ToggledTitle="Show Translation"
+                                         Style="float:right;" />
+                </MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd>
+                    @context.Key
+                </MudTd>
+                <MudTd>
+                    @if (AlarmOn)
+                    {
+                        @context.Value
+                    }
+                    else
+                    {
+                        @string.Empty
+                    }
+                </MudTd>
+
+            </RowTemplate>
+
+            <PagerContent>
+                <MudTablePager />
+            </PagerContent>
+
+        </MudTable>
+        @*        @foreach (var item in _dictionary)
+        {
+        <MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+        }
+        *@
+    </MudItem>
+</MudGrid>
+
+@*
+<MudText Style="word-wrap:break-word">
+    <pre>
+        @_fileContent
+    </pre>
+</MudText>
+*@
+
+@code {
+    private string _fileContent = string.Empty;
+    private Dictionary<string, string> _dictionary = new Dictionary<string, string>();
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _fileContent = await File.ReadAllTextAsync("wwwroot/vocabularies/verbs-lit-rus.txt");
+
+        var rows = _fileContent.Split('\n')
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .ToList();
+
+        foreach (var row in rows)
+        {
+            var arr = row.Split("\t");
+            _dictionary.Add(arr[0].Trim(), arr[1].Trim());
+        }
+    }
+
+    public bool AlarmOn { get; set; }
+    public int SwitchedOnCount { get; set; }
+
+    private const int MaxCount = 5;
+
+    public void OnToggledChanged(bool toggled)
+    {
+        // Because variable is not two-way bound, we need to update it ourself
+        AlarmOn = toggled;
+
+        if (AlarmOn)
+        {
+            if (SwitchedOnCount < MaxCount)
+                SwitchedOnCount++;
+            else
+                AlarmOn = false;    // We can force a state under specific condition (max count reached)
+        }
+    }
+
+}

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\vocabularies\verbs-lit-rus.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\vocabularies\verbs-lit-rus.txt" />
+  </ItemGroup>
+
+</Project>

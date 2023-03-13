@@ -1,5 +1,6 @@
 ﻿using ITFCode.Core.Domain.DataContext;
 using ITFCode.Domain.DataContext.Interfaces;
+using ITFCode.Domain.Entities.Lexicon;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITFCode.Domain.DataContext
@@ -10,5 +11,10 @@ namespace ITFCode.Domain.DataContext
             : base(options)
         {
         }
+
+        public DbSet<VocabularyRecord> VocabularyRecords { get; set; }
+
+
+
     }
 }
