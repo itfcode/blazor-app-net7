@@ -1,21 +1,57 @@
 ﻿@page "/counter"
 
+<style>
+    button.letter {
+        padding-right: 4px;
+        padding-left: 4px;
+        min-width: 30px !important;
+        font-size: 18px !important;
+    }
+</style>
+
 <PageTitle>Counter</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+<MudGrid>
 
-<MudText Class="mb-4">Current count: @currentCount</MudText>
+    <MudItem xs="4">
+        <MudText Typo="Typo.h6" GutterBottom="true">Counter</MudText>
+    </MudItem>
 
-<MudButton Color="Color.Tertiary" Variant="Variant.Filled"
-           @onclick="IncrementCount">Load Vocabulary</MudButton>
+    <MudItem xs="4">
+        <MudText Class="mb-4">Current count: @currentCount</MudText>
+    </MudItem>
 
-<br />
+    <MudItem xs="4">
+        <MudButton Color="Color.Tertiary" Variant="Variant.Filled"
+                   @onclick="IncrementCount">Load Vocabulary</MudButton>
+    </MudItem>
+</MudGrid>
 
 <MudGrid>
-    <MudItem xs="10">
+    <MudItem xs="12">
+
         <MudTable Items="_dictionary" Hover="true"
                   Breakpoint="Breakpoint.Sm"
+                  Filter="new Func<KeyValuePair<string,string>,bool>(FilterFunc)"
                   LoadingProgressColor="Color.Info">
+
+            <ToolBarContent>
+                <div style="text-align:center;width:100%;">
+                    @foreach (var letter in _letters)
+                    {
+                        if (_letterFilter.Contains(letter))
+                        {
+                            <MudButton Variant="Variant.Text" Class="letter" Color="Color.Error"
+                               OnClick="(arg) => InExLetter(letter)">@letter</MudButton>
+                        }
+                        else
+                        {
+                            <MudButton Variant="Variant.Text" Class="letter"
+                               OnClick="(arg) => InExLetter(letter)">@letter</MudButton>
+                        }
+                    }
+                </div>
+            </ToolBarContent>
 
             <HeaderContent>
 
@@ -23,15 +59,14 @@
 
                 <MudTh Class="th-header-translation-ru1" Style="width:50%;">
 
-                    <span style="margin:auto;">Translation</span>
-
+                    @*<MudText> Translation </MudText>*@
                     <MudToggleIconButton Toggled="@AlarmOn"
                                          ToggledChanged="OnToggledChanged"
-                                         Icon="@Icons.Material.Filled.VisibilityOff"
-                                         Color="@Color.Error"
+                                         Icon="@Icons.Material.Filled.Visibility"
+                                         Color="@Color.Primary"
                                          Title="Hide Translation"
-                                         ToggledIcon="@Icons.Material.Filled.Visibility"
-                                         ToggledColor="@Color.Primary"
+                                         ToggledIcon="@Icons.Material.Filled.VisibilityOff"
+                                         ToggledColor="@Color.Error"
                                          ToggledTitle="Show Translation"
                                          Style="float:right;" />
                 </MudTh>
@@ -40,6 +75,14 @@
             <RowTemplate>
                 <MudTd>
                     @context.Key
+
+                    <MudToggleIconButton Toggled="true"
+                                         Icon="@Icons.Material.Filled.Star"
+                                         Color="@Color.Warning"
+                                         Title="Off"
+                                         ToggledIcon="@Icons.Material.Filled.StarBorder"
+                                         ToggledColor="@Color.Dark"
+                                         ToggledTitle="On" />
                 </MudTd>
                 <MudTd>
                     @if (AlarmOn)
@@ -76,8 +119,12 @@
 *@
 
 @code {
+
     private string _fileContent = string.Empty;
     private Dictionary<string, string> _dictionary = new Dictionary<string, string>();
+
+    private IList<string> _letters = new List<string>();
+    private IList<string> _letterFilter = new List<string>();
 
     private int currentCount = 0;
 
@@ -99,6 +146,33 @@
             var arr = row.Split("\t");
             _dictionary.Add(arr[0].Trim(), arr[1].Trim());
         }
+
+        _letters = _dictionary
+            .Select(x => x.Key.First())
+            .Distinct()
+            .Select(x => $"{x}".ToUpper())
+            .OrderBy(x => x)
+            .ToList();
+
+    }
+
+    private bool FilterFunc(KeyValuePair<string, string> pair)
+    {
+        if (_letterFilter.Count == 0)
+            return true;
+
+        var firstLetter = pair.Key.First().ToString().ToUpper();
+
+        return _letterFilter.Contains(firstLetter);
+    }
+
+    private void InExLetter(string letter)
+    {
+        if (_letterFilter.Contains(letter))
+            _letterFilter.Remove(letter);
+        else
+            _letterFilter.Add(letter);
+
     }
 
     public bool AlarmOn { get; set; }
@@ -120,4 +194,8 @@
         }
     }
 
+    public class Letter1
+    {
+        public string Value { get; set; }
+    }
 }
