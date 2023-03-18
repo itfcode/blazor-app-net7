@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ITFCode.Lexicon.DataPreparer;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -18,5 +19,8 @@ if (match.Success)
 
     var contents = File.ReadAllLines(filePath);
 
-    Console.WriteLine(result);
+    var data = new GeneratorSqlStatements().GetLitVerbs(contents);
+
+    Console.WriteLine(data.Item1);
+    Console.WriteLine(data.Item2);
 }

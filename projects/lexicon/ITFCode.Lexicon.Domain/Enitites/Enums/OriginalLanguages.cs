@@ -1,4 +1,4 @@
-﻿namespace ITFCode.Domain.Entities.Lexicon.Enums
+﻿namespace ITFCode.Lexicon.Domain.Entities.Enums
 {
     public enum OriginalLanguages
     {

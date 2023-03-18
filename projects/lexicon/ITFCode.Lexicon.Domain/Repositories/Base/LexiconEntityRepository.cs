@@ -1,7 +1,6 @@
-﻿namespace ITFCode.Domain.Lexicon.Repositories.Base
+﻿namespace ITFCode.Lexicon.Domain.Repositories.Base
 {
     public abstract class LexiconEntityRepository
     {
-
     }
 }

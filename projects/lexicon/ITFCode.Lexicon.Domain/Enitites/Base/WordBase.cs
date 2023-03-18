@@ -1,9 +1,9 @@
 ﻿using ITFCode.Core.Domain.Entities.Base;
-using ITFCode.Domain.Entities.Lexicon.Enums;
+using ITFCode.Lexicon.Domain.Entities.Enums;
 
-namespace ITFCode.Domain.Lexicon.Enitites.Base
+namespace ITFCode.Lexicon.Domain.Enitites.Base
 {
-    public abstract class WordBase : Entity<string>
+    public abstract class WordBase : Entity<int>
     {
         public string Value { get; set; }
 
