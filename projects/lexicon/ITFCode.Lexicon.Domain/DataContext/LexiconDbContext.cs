@@ -13,6 +13,6 @@ namespace ITFCode.Domain.DataContext
         }
 
         public DbSet<LithuanianWord> LithuanianWord { get; set; }
-        public DbSet<LithuanianVerb> LithuanianVerbs { get; set; }
+        public DbSet<LithuanianVerbForm> LithuanianVerbForms { get; set; }
     }
 }

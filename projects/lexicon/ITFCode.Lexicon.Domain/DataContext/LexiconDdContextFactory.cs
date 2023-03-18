@@ -18,7 +18,7 @@ namespace ITFCode.Domain.DataContext
 
             // GetById connection string from appsettings.json
 
-            string connectionString = config.GetConnectionString("ApplicationDataContextConnection") ?? string.Empty;
+            string connectionString = config.GetConnectionString("DefaultDataContextConnection") ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(connectionString)) 
             {

@@ -7,6 +7,6 @@ namespace ITFCode.Lexicon.Domain.DataContext.Interface
     {
         DbSet<LithuanianWord> LithuanianWord { get; set; }
 
-        DbSet<LithuanianVerb> LithuanianVerbs { get; set; }
+        DbSet<LithuanianVerbForm> LithuanianVerbForms { get; set; }
     }
 }

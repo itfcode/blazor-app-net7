@@ -1,13 +1,14 @@
-﻿using ITFCode.Core.Domain.Entities.Base;
-using ITFCode.Lexicon.Domain.Entities.Enums;
+﻿using ITFCode.Lexicon.Domain.Entities.Enums;
 
 namespace ITFCode.Lexicon.Domain.Enitites.Base
 {
-    public abstract class WordBase : Entity<int>
+    public abstract class WordBase : LexiconEntity
     {
-        public string Value { get; set; }
+        public string Name { get; set; }
 
-        public PartsOfSpeech PartsOfSpeech { get; set; }
+        public PartOfSpeech PartsOfSpeech { get; set; }
+
+        public virtual OriginalLanguage OriginalLanguage { get; set; }
 
         public string TranslationRu { get; set; }
 

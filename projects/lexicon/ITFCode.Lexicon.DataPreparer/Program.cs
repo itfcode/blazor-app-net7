@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ITFCode.Lexicon.DataPreparer;
-using System.IO;
 using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
@@ -20,6 +19,9 @@ if (match.Success)
     var contents = File.ReadAllLines(filePath);
 
     var data = new GeneratorSqlStatements().GetLitVerbs(contents);
+
+    File.WriteAllText($@"{result}\Dest\lit-words-verbs.sql", data.Item1);
+    File.WriteAllText($@"{result}\Dest\lit-words-verb-forms.sql", data.Item2);
 
     Console.WriteLine(data.Item1);
     Console.WriteLine(data.Item2);

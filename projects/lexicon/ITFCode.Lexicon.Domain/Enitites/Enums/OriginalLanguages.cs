@@ -1,6 +1,6 @@
 ﻿namespace ITFCode.Lexicon.Domain.Entities.Enums
 {
-    public enum OriginalLanguages
+    public enum OriginalLanguage
     {
         English = 10,
         Lithuanian = 20,

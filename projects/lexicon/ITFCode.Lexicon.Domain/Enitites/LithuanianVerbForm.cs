@@ -2,7 +2,7 @@
 
 namespace ITFCode.Lexicon.Domain.Entities
 {
-    public class LithuanianVerb : VerbForms<LithuanianWord>
+    public class LithuanianVerbForm : VerbForm<LithuanianWord>
     {
     }
 }

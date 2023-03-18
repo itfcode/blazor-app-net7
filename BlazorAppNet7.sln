@@ -77,9 +77,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazorComponents", "proj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lexicon", "lexicon", "{A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Lexicon.DataPreparer", "projects\lexicon\ITFCode.Lexicon.DataPreparer\ITFCode.Lexicon.DataPreparer.csproj", "{82BF47CC-A39C-4DBD-A87F-ABC299EA4536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Lexicon.DataPreparer", "projects\lexicon\ITFCode.Lexicon.DataPreparer\ITFCode.Lexicon.DataPreparer.csproj", "{82BF47CC-A39C-4DBD-A87F-ABC299EA4536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Lexicon.Domain", "projects\lexicon\ITFCode.Lexicon.Domain\ITFCode.Lexicon.Domain.csproj", "{60A3A9F0-3684-44A8-8B50-42518E29E87F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCode.Lexicon.Domain", "projects\lexicon\ITFCode.Lexicon.Domain\ITFCode.Lexicon.Domain.csproj", "{60A3A9F0-3684-44A8-8B50-42518E29E87F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Lexicon.DTO", "projects\lexicon\ITFCode.Lexicon.DTO\ITFCode.Lexicon.DTO.csproj", "{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Lexicon.Services", "projects\lexicon\ITFCode.Lexicon.Services\ITFCode.Lexicon.Services.csproj", "{4B8E3AB9-783D-43B3-83C5-BF43184705F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "health", "health", "{888B9AF3-B271-4169-9301-50E0A867F90B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "finance", "finance", "{4293B655-B55B-4331-A446-612F74EB55D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +211,14 @@ Global
 		{60A3A9F0-3684-44A8-8B50-42518E29E87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60A3A9F0-3684-44A8-8B50-42518E29E87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60A3A9F0-3684-44A8-8B50-42518E29E87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -244,6 +260,10 @@ Global
 		{A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 		{82BF47CC-A39C-4DBD-A87F-ABC299EA4536} = {A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11}
 		{60A3A9F0-3684-44A8-8B50-42518E29E87F} = {A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11}
+		{55E69E56-94E4-40A7-A3A7-9882F6E3C0C6} = {A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11}
+		{4B8E3AB9-783D-43B3-83C5-BF43184705F1} = {A5376179-CC0D-4C67-B9B9-9AD7FDFE4A11}
+		{888B9AF3-B271-4169-9301-50E0A867F90B} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
+		{4293B655-B55B-4331-A446-612F74EB55D6} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83B52C76-66B1-46D1-8EA7-96DEB1478711}

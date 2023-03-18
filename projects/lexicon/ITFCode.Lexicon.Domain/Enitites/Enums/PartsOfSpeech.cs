@@ -1,6 +1,6 @@
 ﻿namespace ITFCode.Lexicon.Domain.Entities.Enums
 {
-    public enum PartsOfSpeech
+    public enum PartOfSpeech
     {
         Noun = 10,  // Существительное (Noun) - это имя предмета, места, человека или идеи, например: dog (собака), city (город), person (человек), love (любовь).
         Adjective = 20, // Прилагательное (Adjective) - это слово, которое описывает или дополняет существительное, например: beautiful (красивый), happy (счастливый), blue (синий).
