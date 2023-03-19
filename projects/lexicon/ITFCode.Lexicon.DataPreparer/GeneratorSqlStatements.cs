@@ -24,13 +24,13 @@ namespace ITFCode.Lexicon.DataPreparer
                 "VALUES");
 
             sbLV.AppendLine("INSERT INTO [dbo].[LithuanianVerbs](\r\n" +
-                "[Id]\r\n," +
-                "[PresentTense3rdPerson]\r\n" +
-                ",[PastTense3rdPerson]\r\n" +
-                ",[PresentTense1rdPerson]\r\n" +
-                ",[PastTense1rdPerson]\r\n" +
-                ",[FutureTense1rdPerson]\r\n" +
-                ",[WordId])\r\n     " +
+                "\t[Id]\r\n," +
+                "\t[PresentTense3rdPerson]\r\n" +
+                "\t,[PastTense3rdPerson]\r\n" +
+                "\t,[PresentTense1rdPerson]\r\n" +
+                "\t,[PastTense1rdPerson]\r\n" +
+                "\t,[FutureTense1rdPerson]\r\n" +
+                "\t,[WordId])\r\n     " +
                 "VALUES");
 
             int wordId = 0;

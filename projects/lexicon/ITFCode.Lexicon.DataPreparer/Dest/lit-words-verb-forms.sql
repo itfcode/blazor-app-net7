@@ -1,50 +1,50 @@
 SET IDENTITY_INSERT [dbo].[LithuanianVerbs] ON 
  
 INSERT INTO [dbo].[LithuanianVerbs](
-[Id]
-,[PresentTense3rdPerson]
-,[PastTense3rdPerson]
-,[PresentTense1rdPerson]
-,[PastTense1rdPerson]
-,[FutureTense1rdPerson]
-,[WordId])
-     VALUES
-(1, N'abejója', N'abejójo', N'abejóju', N'abejójau', N'abejósiu',1),
-(2, N'áiškina', N'áiškino', N'áiškinu', N'áiškinau', N'áiškinsiu',2),
-(3, N'apsistója', N'apsistójo', N'apsistóju', N'apsistójau', N'apsistósiu',3),
-(4, N'atléidžia', N'atléido', N'atléidžiu', N'atléidau', N'atléisiu',4),
-(5, N'atostogáuja', N'atostogãvo', N'atostogáuju', N'atostogavaũ', N'atostogáusiu',5),
-(6, N'atródo', N'atródė', N'atródau', N'atródžiau', N'atródysiu',6),
-(7, N'atsãko', N'atsãkė', N'atsakaũ', N'atsakiaũ', N'atsakýsiu',7),
-(8, N'atsiliẽpia', N'atsi̇̀liepė', N'atsiliepiù', N'atsi̇̀liepiau', N'atsiliẽpsiu',8),
-(9, N'atsi̇̀mena', N'atsi̇̀minė', N'atsi̇̀menu', N'atsi̇̀miniau', N'atsimiñsiu',9),
-(10, N'atsiprãšo', N'atsiprãšė', N'atsiprašaũ', N'atsiprašiaũ', N'atsiprašýsiu',10),
-(11, N'atsisãko', N'atsisãkė', N'atsisakaũ', N'atsisakiaũ', N'atsisakýsiu',11),
-(12, N'augi̇na', N'augi̇no', N'auginù', N'auginaũ', N'augi̇̀nsiu',12),
-(13, N'áuga', N'áugo', N'áugu', N'áugau', N'áugsiu',13),
-(14, N'áuklėja', N'áuklėjo', N'áuklėju', N'áuklėjau', N'áuklėsiu',14),
-(15, N'aũnasi', N'ãvėsi', N'aunúosi', N'aviaũsi', N'aũsiuosi',15),
-(16, N'baigia', N'baigė', N'baigiù', N'baigiaũ', N'bai̇gsiu',16),
-(17, N'baigiasi', N'baigėsi','','','',17),
-(18, N'bañdo', N'bañdė', N'bandaũ', N'bandžiaũ', N'bandýsiu',18),
-(19, N'bėgiója', N'bėgiójo', N'bėgióju', N'bėgiójau', N'bėgiósiu',19),
-(20, N'bė́ga', N'bė́go', N'bė́gu', N'bė́gau', N'bė́gsiu',20),
-(21, N'bijo', N'bijójo', N'bijaũ', N'bijójau', N'bijósiu',21),
-(22, N'bučiúoja', N'bučiãvo', N'bučiúoju', N'bučiavaũ', N'bučiúosiu',22),
-(23, N'bučiúojasi', N'bučiãvosi', N'bučiúojuosi', N'bučiavaũsi', N'bučiúosiuosi',23),
-(24, N'yrà / bū̃na', N'bùvo', N'esù / būnù', N'buvaũ', N'bū́siu',24),
-(25, N'čiuožinė́ja', N'čiuožinė́jo', N'čiuožinė́ju', N'čiuožinė́jau', N'čiuožinė́siu',25),
-(26, N'dainúoja', N'dainãvo', N'dainúoju', N'dainavaũ', N'dainúosiu',26),
-(27, N'dalyváuja', N'dalyvãvo', N'dalyváuju', N'dalyvavaũ', N'dalyváusiu',27),
-(28, N'dãro', N'dãrė', N'daraũ', N'dariaũ', N'darýsiu',28),
-(29, N'dãžo', N'dãžė', N'dažaũ', N'dažiaũ', N'dažýsiu',29),
-(30, N'dãžosi', N'dãžėsi', N'dažaũsi', N'dažiaũsi', N'dažýsiuosi',30),
-(31, N'dẽga', N'dẽgė', N'degù', N'degiaũ', N'dègsiu',31),
-(32, N'dėkója', N'dėkójo', N'dėkóju', N'dėkójau', N'dėkósiu',32),
-(33, N'dė́sto', N'dė́stė', N'dė́stau', N'dė́sčiau', N'dė́stysiu',33),
-(34, N'dẽda', N'dė́jo', N'dedù', N'dė́jau', N'dė́siu',34),
-(35, N'dėvi', N'dėvė́jo', N'dėviù', N'dėvė́jau', N'dėvė́siu',35),
-(36, N'didė́ja', N'didė́jo', N'didė́ju', N'didė́jau', N'didė́siu',36),
+    [Id]
+    ,[PresentTense3rdPerson]
+    ,[PastTense3rdPerson]
+    ,[PresentTense1rdPerson]
+    ,[PastTense1rdPerson]
+    ,[FutureTense1rdPerson]
+    ,[WordId])
+VALUES
+    (1, N'abejója', N'abejójo', N'abejóju', N'abejójau', N'abejósiu',1),
+    (2, N'áiškina', N'áiškino', N'áiškinu', N'áiškinau', N'áiškinsiu',2),
+    (3, N'apsistója', N'apsistójo', N'apsistóju', N'apsistójau', N'apsistósiu',3),
+    (4, N'atléidžia', N'atléido', N'atléidžiu', N'atléidau', N'atléisiu',4),
+    (5, N'atostogáuja', N'atostogãvo', N'atostogáuju', N'atostogavaũ', N'atostogáusiu',5),
+    (6, N'atródo', N'atródė', N'atródau', N'atródžiau', N'atródysiu',6),
+    (7, N'atsãko', N'atsãkė', N'atsakaũ', N'atsakiaũ', N'atsakýsiu',7),
+    (8, N'atsiliẽpia', N'atsi̇̀liepė', N'atsiliepiù', N'atsi̇̀liepiau', N'atsiliẽpsiu',8),
+    (9, N'atsi̇̀mena', N'atsi̇̀minė', N'atsi̇̀menu', N'atsi̇̀miniau', N'atsimiñsiu',9),
+    (10, N'atsiprãšo', N'atsiprãšė', N'atsiprašaũ', N'atsiprašiaũ', N'atsiprašýsiu',10),
+    (11, N'atsisãko', N'atsisãkė', N'atsisakaũ', N'atsisakiaũ', N'atsisakýsiu',11),
+    (12, N'augi̇na', N'augi̇no', N'auginù', N'auginaũ', N'augi̇̀nsiu',12),
+    (13, N'áuga', N'áugo', N'áugu', N'áugau', N'áugsiu',13),
+    (14, N'áuklėja', N'áuklėjo', N'áuklėju', N'áuklėjau', N'áuklėsiu',14),
+    (15, N'aũnasi', N'ãvėsi', N'aunúosi', N'aviaũsi', N'aũsiuosi',15),
+    (16, N'baigia', N'baigė', N'baigiù', N'baigiaũ', N'bai̇gsiu',16),
+    (17, N'baigiasi', N'baigėsi','','','',17),
+    (18, N'bañdo', N'bañdė', N'bandaũ', N'bandžiaũ', N'bandýsiu',18),
+    (19, N'bėgiója', N'bėgiójo', N'bėgióju', N'bėgiójau', N'bėgiósiu',19),
+    (20, N'bė́ga', N'bė́go', N'bė́gu', N'bė́gau', N'bė́gsiu',20),
+    (21, N'bijo', N'bijójo', N'bijaũ', N'bijójau', N'bijósiu',21),
+    (22, N'bučiúoja', N'bučiãvo', N'bučiúoju', N'bučiavaũ', N'bučiúosiu',22),
+    (23, N'bučiúojasi', N'bučiãvosi', N'bučiúojuosi', N'bučiavaũsi', N'bučiúosiuosi',23),
+    (24, N'yrà / bū̃na', N'bùvo', N'esù / būnù', N'buvaũ', N'bū́siu',24),
+    (25, N'čiuožinė́ja', N'čiuožinė́jo', N'čiuožinė́ju', N'čiuožinė́jau', N'čiuožinė́siu',25),
+    (26, N'dainúoja', N'dainãvo', N'dainúoju', N'dainavaũ', N'dainúosiu',26),
+    (27, N'dalyváuja', N'dalyvãvo', N'dalyváuju', N'dalyvavaũ', N'dalyváusiu',27),
+    (28, N'dãro', N'dãrė', N'daraũ', N'dariaũ', N'darýsiu',28),
+    (29, N'dãžo', N'dãžė', N'dažaũ', N'dažiaũ', N'dažýsiu',29),
+    (30, N'dãžosi', N'dãžėsi', N'dažaũsi', N'dažiaũsi', N'dažýsiuosi',30),
+    (31, N'dẽga', N'dẽgė', N'degù', N'degiaũ', N'dègsiu',31),
+    (32, N'dėkója', N'dėkójo', N'dėkóju', N'dėkójau', N'dėkósiu',32),
+    (33, N'dė́sto', N'dė́stė', N'dė́stau', N'dė́sčiau', N'dė́stysiu',33),
+    (34, N'dẽda', N'dė́jo', N'dedù', N'dė́jau', N'dė́siu',34),
+    (35, N'dėvi', N'dėvė́jo', N'dėviù', N'dėvė́jau', N'dėvė́siu',35),
+    (36, N'didė́ja', N'didė́jo', N'didė́ju', N'didė́jau', N'didė́siu',36),
 (37, N'di̇rba', N'di̇rbo', N'di̇̀rbu', N'di̇̀rbau', N'di̇̀rbsiu',37),
 (38, N'dõmisi', N'domė́josi', N'domiúosi', N'domė́jausi', N'domė́siuosi',38),
 (39, N'dovanója', N'dovanójo', N'dovanóju', N'dovanójau', N'dovanósiu',39),
