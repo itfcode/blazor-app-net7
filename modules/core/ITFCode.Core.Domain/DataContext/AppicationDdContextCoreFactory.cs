@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace ITFCode.Core.Domain.DataContext
 {
-    public class AppicationDdContextCoreFactory<TDbContext> : IDesignTimeDbContextFactory<TDbContext>
+    public abstract class AppicationDdContextCoreFactory<TDbContext> : IDesignTimeDbContextFactory<TDbContext>
         where TDbContext : ApplicationDbContextCore
     {
         protected virtual string AppSettingsFile => "appsettings.json";

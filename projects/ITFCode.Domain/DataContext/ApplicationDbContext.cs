@@ -13,6 +13,5 @@ namespace ITFCode.Domain.DataContext
         }
 
         public DbSet<VocabularyRecord> VocabularyRecords { get; set; }
-
     }
 }
