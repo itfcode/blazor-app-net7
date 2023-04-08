@@ -13,25 +13,48 @@ namespace ITFCode.Core.Service.Data
         where TUnitOfWork : class, IUnitOfWorkCore
         where TRepository : class, IEntityRepositoryCore<TEntity>
     {
-        protected readonly IMapper _mapper;
-        protected readonly ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> _logger;
-        protected readonly TRepository _repository;
-        protected readonly TUnitOfWork _unitOfWork;
+        #region Private & Protected Fields 
 
-        public EntityDataServiceCore(IMapper mapper,
-            ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> logger,
-            TUnitOfWork unitOfWork, TRepository repository)
+        private readonly IMapper _mapper;
+        private readonly ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> _logger;
+        private readonly TRepository _repository;
+        private readonly TUnitOfWork _unitOfWork;
+
+        #endregion
+
+        #region Protected Properties 
+
+        protected IMapper Mapper => _mapper ?? throw new NullReferenceException("Mapper Service not defined");
+        protected ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> Logger => _logger ?? throw new NullReferenceException("Logger Service not defined");
+        protected TRepository Repository => _repository ?? throw new NullReferenceException("Repository Service not defined");
+        protected TUnitOfWork UnitOfWork => _unitOfWork ?? throw new NullReferenceException("UnitOfWork Service not defined");
+
+        #endregion
+
+        #region Constructros 
+
+        protected EntityDataServiceCore(ILogger<EntityDataServiceCore<TEntity, TEntityDTO, TUnitOfWork, TRepository>> logger,
+            IMapper mapper,
+            TUnitOfWork unitOfWork,
+            TRepository repository)
         {
+            ArgumentNullException.ThrowIfNull(logger, nameof(logger));
+            ArgumentNullException.ThrowIfNull(mapper, nameof(mapper));
+            ArgumentNullException.ThrowIfNull(unitOfWork, nameof(unitOfWork));
+            ArgumentNullException.ThrowIfNull(repository, nameof(repository));
+
             _mapper = mapper;
             _logger = logger;
             _unitOfWork = unitOfWork;
             _repository = repository;
         }
 
+        #endregion
+
         #region IEntityDataService Implementation
 
         public virtual async Task<TEntityDTO> Get(object[] keys, CancellationToken cancellationToken = default)
-            => Map(await _repository.Find(keys, cancellationToken));
+            => Map(await Repository.Find(keys, cancellationToken));
 
         public virtual async Task<IEnumerable<TEntityDTO>> GetAll(CancellationToken cancellationToken = default)
             => throw new NotImplementedException();
@@ -40,10 +63,28 @@ namespace ITFCode.Core.Service.Data
 
         #region Protected Methods 
 
-        protected TEntityDTO Map(TEntity entity) => _mapper.Map<TEntityDTO>(entity);
-        protected TEntity Map(TEntityDTO model) => _mapper.Map<TEntity>(model);
-        protected IEnumerable<TEntity> Map(IEnumerable<TEntityDTO> entities) => _mapper.Map<IEnumerable<TEntity>>(entities);
-        protected IEnumerable<TEntityDTO> Map(IEnumerable<TEntity> entities) => _mapper.Map<IEnumerable<TEntityDTO>>(entities);
+        protected TEntityDTO Map(TEntity entity) => Mapper.Map<TEntityDTO>(entity);
+
+        protected TEntity Map(TEntityDTO model) => Mapper.Map<TEntity>(model);
+
+        protected IEnumerable<TEntity> MapRange(IEnumerable<TEntityDTO> dtos)
+        {
+            return Mapper.Map<IEnumerable<TEntity>>(dtos);
+        }
+
+        protected IEnumerable<TEntityDTO> MapRange(IEnumerable<TEntity> entities)
+        {
+            return MapRange<IEnumerable<TEntity>, IEnumerable<TEntityDTO>, TEntity, TEntityDTO>(entities);
+        }
+
+        private TCollectionOut MapRange<TCollectionIn, TCollectionOut, TIn, TOut>(TCollectionIn items)
+            where TCollectionIn : IEnumerable<TIn>
+            where TCollectionOut : IEnumerable<TOut>
+            where TIn : class
+            where TOut : class
+        {
+            return Mapper.Map<TCollectionOut>(items);
+        }
 
         #endregion
     }
