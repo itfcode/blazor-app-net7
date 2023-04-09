@@ -91,6 +91,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "finance", "finance", "{4293
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "alpha", "alpha", "{3054A7FE-15DF-4F84-B0FC-3F99712C4528}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCode.Core.Api", "modules\core\ITFCode.Core.Api\ITFCode.Core.Api.csproj", "{117E6A35-611A-444B-AD14-64F9CF11746B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B8E3AB9-783D-43B3-83C5-BF43184705F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117E6A35-611A-444B-AD14-64F9CF11746B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117E6A35-611A-444B-AD14-64F9CF11746B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117E6A35-611A-444B-AD14-64F9CF11746B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117E6A35-611A-444B-AD14-64F9CF11746B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +273,7 @@ Global
 		{888B9AF3-B271-4169-9301-50E0A867F90B} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 		{4293B655-B55B-4331-A446-612F74EB55D6} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
 		{3054A7FE-15DF-4F84-B0FC-3F99712C4528} = {044BB8C0-7110-4785-B6AB-EF96BD9579A8}
+		{117E6A35-611A-444B-AD14-64F9CF11746B} = {024AFB3F-E0F0-4DE0-B625-2DD3D0F8C8D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83B52C76-66B1-46D1-8EA7-96DEB1478711}

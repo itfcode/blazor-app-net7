@@ -1,9 +1,9 @@
 ﻿using ITFCode.Core.DTO.Entities.Base.Interfaces;
 using ITFCode.Core.DTO.FilterOptions;
 
-namespace ITFCode.Core.Service.Data.Base.Interfaces
+namespace ITFCode.Core.Service.Data.Interfaces
 {
-    public interface IEntityDataServiceCore<TEntityDTO> : IDisposable
+    public interface IReadDataService<TEntityDTO> : IDisposable
         where TEntityDTO : class, IEntityDTO
     {
         Task<TEntityDTO> Get(object key, CancellationToken cancellationToken = default);
