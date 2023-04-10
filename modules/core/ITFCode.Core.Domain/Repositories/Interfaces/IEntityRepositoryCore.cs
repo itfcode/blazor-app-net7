@@ -1,5 +1,4 @@
 ﻿using ITFCode.Core.Domain.Entities.Base.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace ITFCode.Core.Domain.Repositories.Interfaces
 {

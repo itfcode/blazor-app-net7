@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace ITFCode.Core.DTO.FilterOptions
 {
-    public class StringFilter : FilterValueOption<string>
+    public class StringValueFilter : FilterValueOption<string>
     {
         [JsonPropertyName("matchMode")]
         [JsonProperty("matchMode")]

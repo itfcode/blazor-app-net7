@@ -1,4 +1,5 @@
-﻿using ITFCode.Core.DTO.Entities.Base.Interfaces;
+﻿using ITFCode.Core.DTO.Entities;
+using ITFCode.Core.DTO.Entities.Base.Interfaces;
 using ITFCode.Core.DTO.FilterOptions;
 
 namespace ITFCode.Core.Service.Data.Interfaces
@@ -8,6 +9,6 @@ namespace ITFCode.Core.Service.Data.Interfaces
     {
         Task<TEntityDTO> Get(object key, CancellationToken cancellationToken = default);
         Task<TEntityDTO> Get(object[] keys, CancellationToken cancellationToken = default);
-        Task<IList<TEntityDTO>> GetPage(QueryFilterOptions queryOptions, CancellationToken cancellationToken = default);
+        Task<PageResult<TEntityDTO>> GetPage(QueryFilterOptions queryOptions, CancellationToken cancellationToken = default);
     }
 }

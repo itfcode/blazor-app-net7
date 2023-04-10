@@ -2,7 +2,7 @@
 
 namespace ITFCode.Core.DTO.FilterOptions
 {
-    public class GuidFilter : FilterValueOption<string>
+    public class GuidValueFilter : FilterValueOption<Guid>
     {
     }
 }

@@ -19,6 +19,12 @@ namespace ITFCode.Core.Service.Data
 
         #endregion
 
+        #region Protected Properties 
+
+        protected TUnitOfWork UnitOfWork => _unitOfWork ?? throw new NullReferenceException("UnitOfWork Service not defined");
+
+        #endregion
+
         #region Constructor
 
         protected ReadWriteDataService(
