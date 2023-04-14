@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using ITFCode.Core.Domain.Entities.Base.Interfaces;
 using ITFCode.Core.Domain.Repositories.Interfaces;
-using ITFCode.Core.DTO.Entities;
 using ITFCode.Core.DTO.Entities.Base.Interfaces;
-using ITFCode.Core.DTO.FilterOptions;
+using ITFCode.Core.DTO.Entities;
 using ITFCode.Core.DTO.FilterOptions.Base;
+using ITFCode.Core.DTO.FilterOptions;
 using ITFCode.Core.Service.Data.FilterHandlers;
 using ITFCode.Core.Service.Data.Interfaces;
+using ITFCode.Core.Service.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
@@ -72,7 +73,7 @@ namespace ITFCode.Core.Service.Data
             if (queryOptions == null)
                 throw new ArgumentNullException("GetPage(queryOptions): parameter 'queryOptions' can not be null");
 
-            var query = _repository.GetAll();
+            var query = GetQueryable();
 
             query = ApplySpecialFiltering(query, queryOptions);
             query = ApplyFiltering(query, queryOptions);
@@ -92,16 +93,58 @@ namespace ITFCode.Core.Service.Data
             };
         }
 
-
         #endregion
 
         #region Protected Methods: 
 
+        protected virtual IQueryable<TEntity> ApplySorting(IQueryable<TEntity> queryable, QueryFilterOptions queryOptions)
+        {
+            ArgumentNullException.ThrowIfNull(queryable, nameof(queryable));
+            ArgumentNullException.ThrowIfNull(queryOptions, nameof(queryOptions));
+
+            try
+            {
+                string sortField = queryOptions?.SortField;
+
+                if (string.IsNullOrWhiteSpace(sortField))
+                    return queryable;
+
+                bool isAsc = queryOptions.IsAsc;
+
+                var item = Expression.Parameter(typeof(TEntity), "item");
+                var property = GetProperty(item, sortField);
+                var lambda = Expression.Lambda(property, item);
+
+                // ReSharper disable once ReplaceWithSingleCallToSingle
+                var method = typeof(Queryable).GetMethods(BindingFlags.Static | BindingFlags.Public)
+                    .Where(a => a.Name == $"OrderBy{(isAsc ? string.Empty : "Descending")}")
+                    .Where(a => a.GetParameters().Length == 2)
+                    .Single();
+                method = method.MakeGenericMethod(new[] { typeof(TEntity), property.Type });
+                return (IQueryable<TEntity>)method.Invoke(method, new object[] { queryable, lambda });
+            }
+            catch
+            {
+                return queryable;
+            }
+        }
+
+        protected virtual IQueryable<TEntity> ApplySpecialFiltering(IQueryable<TEntity> query, QueryFilterOptions queryOptions)
+        {
+            ArgumentNullException.ThrowIfNull(query, nameof(query));
+
+            return query;
+        }
+
         private IQueryable<TEntity> ApplyFiltering(IQueryable<TEntity> query, QueryFilterOptions queryOptions)
         {
+            ArgumentNullException.ThrowIfNull(query, nameof(query));
+            ArgumentNullException.ThrowIfNull(queryOptions, nameof(queryOptions));
+
             var filters = queryOptions.Filters;
 
-            if (filters == null || !filters.Any()) return query;
+            if (filters == null || !filters.Any())
+                return query;
 
             foreach (var groupedFilters in filters.GroupBy(a => a.PropertyName.ToLowerInvariant()))
             {
@@ -111,23 +154,23 @@ namespace ITFCode.Core.Service.Data
                     CheckFilter(filterInfo);
                     Expression<Func<TEntity, bool>> expr = null;
 
-                    if (filterInfo is StringValueFilter stringFilter)
-                        expr = new StringValueFilterHandler(stringFilter).Handle<TEntity>();
+                    if (filterInfo is StringValueFilter stringValueFilter)
+                        expr = new StringValueFilterHandler(stringValueFilter).Handle<TEntity>();
 
-                    if (filterInfo is StringListFilter stringFilter)
-                        expr = new StringListFilterHandler(stringFilter).Handle<TEntity>();
+                    if (filterInfo is StringListFilter stringListFilter)
+                        expr = new StringListFilterHandler(stringListFilter).Handle<TEntity>();
 
-                    if (filterInfo is NumericValueFilter numericFilter)
-                        expr = new NumericFilterHandler(numericFilter).Handle<TEntity>();
+                    if (filterInfo is NumericValueFilter numericValueFilter)
+                        expr = new NumericValueFilterHandler(numericValueFilter).Handle<TEntity>();
 
-                    if (filterInfo is NumericListFilter numericFilter)
-                        expr = new NumericFilterHandler(numericFilter).Handle<TEntity>();
+                    if (filterInfo is NumericListFilter numericListFilter)
+                        expr = new NumericListFilterHandler(numericListFilter).Handle<TEntity>();
 
-                    if (filterInfo is NumericRangeFilter numericFilter)
-                        expr = new NumericFilterHandler(numericFilter).Handle<TEntity>();
+                    if (filterInfo is NumericRangeFilter numericRangeFilter)
+                        expr = new NumericRangeFilterHandler(numericRangeFilter).Handle<TEntity>();
 
-                    if (filterInfo is DateValueFilter dateListFilter)
-                        expr = new DateListFilterHandler(dateListFilter).Handle<TEntity>();
+                    if (filterInfo is DateValueFilter dateValueFilter)
+                        expr = new DateValueFilterHandler(dateValueFilter).Handle<TEntity>();
 
                     if (filterInfo is DateListFilter dateListFilter)
                         expr = new DateListFilterHandler(dateListFilter).Handle<TEntity>();
@@ -136,25 +179,17 @@ namespace ITFCode.Core.Service.Data
                         expr = new DateRangeFilterHandler(dateRangeFilter).Handle<TEntity>();
 
                     if (filterInfo is GuidValueFilter guidFilter)
-                        expr = new GuidFilterHandler(guidFilter).Handle<TEntity>();
+                        expr = new GuidValueFilterHandler(guidFilter).Handle<TEntity>();
 
                     if (filterInfo is GuidListFilter guidListFilter)
                         expr = new GuidListFilterHandler(guidListFilter).Handle<TEntity>();
 
-                    if (filterInfo is NumericListFilter numericListFilter)
-                        expr = new NumericListFilterHandler(numericListFilter).Handle<TEntity>();
-
-                    if (filterInfo is StringListFilter stringListFilter)
-                        expr = new StringListFilterHandler(stringListFilter).Handle<TEntity>();
-
                     if (expr != null)
-                        orExpression = orExpression == null ? expr : orExpression.Or(expr);
+                        orExpression = orExpression == null ? expr : orExpression.CombineOr(expr);
                 }
 
                 if (orExpression != null)
-                {
                     query = query.Where(orExpression);
-                }
             }
 
             return query;
@@ -209,6 +244,27 @@ namespace ITFCode.Core.Service.Data
             {
                 throw new ArgumentException($"Can not find '{filter.PropertyName}' property " + $"in '{typeof(TEntity).FullName}' entity type");
             }
+        }
+
+        protected virtual IQueryable<TEntity> GetQueryable() => Repository.GetAll();
+
+        private MemberExpression GetProperty(ParameterExpression item, string propertyName)
+        {
+            ArgumentNullException.ThrowIfNull(item, nameof(item));
+            ArgumentNullException.ThrowIfNull(propertyName, nameof(propertyName));
+
+            MemberExpression? res = default;
+
+            var properties = propertyName.Split('.');
+            foreach (var property in properties)
+            {
+                if (res == null)
+                    res = Expression.Property(item, property);
+                else
+                    res = Expression.Property(res, property);
+            }
+
+            return res ?? throw new NullReferenceException($"Cannot define an expression for property '{propertyName}'");
         }
 
         #endregion

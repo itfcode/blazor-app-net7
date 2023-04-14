@@ -6,12 +6,12 @@ namespace ITFCode.Core.Service.Extensions
     {
         #region Public Methods 
 
-        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> exp, Expression<Func<T, bool>> newExp)
+        public static Expression<Func<T, bool>> CombineOr<T>(this Expression<Func<T, bool>> exp, Expression<Func<T, bool>> newExp)
         {
             return Combine(exp, newExp, Expression.Or);
         }
 
-        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> exp, Expression<Func<T, bool>> newExp)
+        public static Expression<Func<T, bool>> CombineAnd<T>(this Expression<Func<T, bool>> exp, Expression<Func<T, bool>> newExp)
         {
             return Combine(exp, newExp, Expression.And);
         }
@@ -38,8 +38,15 @@ namespace ITFCode.Core.Service.Extensions
         {
             #region Private Fields 
 
-            private ParameterExpression _oldParameter;
-            private ParameterExpression _newParameter;
+            private readonly ParameterExpression _oldParameter;
+            private readonly ParameterExpression _newParameter;
+
+            #endregion
+
+            #region Protected Properties 
+
+            protected ParameterExpression OldParameter => _oldParameter;
+            protected ParameterExpression NewParameter => _newParameter;
 
             #endregion
 

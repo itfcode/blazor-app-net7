@@ -2,7 +2,7 @@
 
 namespace ITFCode.Core.DTO.FilterValues
 {
-    public class BooleanFilterValue : FilterValue<bool>
+    public class BoolFilterValue : FilterValue<bool>
     {
     }
 }

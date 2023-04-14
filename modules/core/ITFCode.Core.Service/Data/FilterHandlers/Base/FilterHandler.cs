@@ -20,6 +20,8 @@ namespace ITFCode.Core.Service.Data.FilterHandlers.Base
 
         public FilterHandler(TFilter filter)
         {
+            ArgumentNullException.ThrowIfNull(filter, nameof(filter));
+
             _filter = filter;
         }
 
