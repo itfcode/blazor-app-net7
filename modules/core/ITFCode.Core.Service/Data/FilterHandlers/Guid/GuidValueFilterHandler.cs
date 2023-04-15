@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ITFCode.Core.Service.Data.FilterHandlers
 {
-    internal class GuidValueFilterHandler : FilterHandler<GuidValueFilter>
+    public class GuidValueFilterHandler : FilterHandler<GuidValueFilter>
     {
         #region Constructions
 

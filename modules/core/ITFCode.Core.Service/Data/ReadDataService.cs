@@ -120,7 +120,9 @@ namespace ITFCode.Core.Service.Data
                     .Where(a => a.Name == $"OrderBy{(isAsc ? string.Empty : "Descending")}")
                     .Where(a => a.GetParameters().Length == 2)
                     .Single();
+
                 method = method.MakeGenericMethod(new[] { typeof(TEntity), property.Type });
+
                 return (IQueryable<TEntity>)method.Invoke(method, new object[] { queryable, lambda });
             }
             catch

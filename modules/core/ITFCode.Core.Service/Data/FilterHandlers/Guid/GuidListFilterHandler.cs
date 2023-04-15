@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace ITFCode.Core.Service.Data.FilterHandlers
 {
-    internal class GuidListFilterHandler : FilterHandler<GuidListFilter>
+    public class GuidListFilterHandler : FilterHandler<GuidListFilter>
     {
         #region Constructions
 
