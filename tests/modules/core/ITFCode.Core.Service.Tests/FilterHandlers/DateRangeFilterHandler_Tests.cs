@@ -10,6 +10,5 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
         {
             Assert.Throws<ArgumentNullException>(() => new DateRangeFilterHandler(null));
         }
-
     }
 }

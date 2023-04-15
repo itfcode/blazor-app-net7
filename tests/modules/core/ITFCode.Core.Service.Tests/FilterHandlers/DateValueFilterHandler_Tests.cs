@@ -13,7 +13,6 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
             Assert.Throws<ArgumentNullException>(() => new DateValueFilterHandler(null));
         }
 
-
         [Theory]
         [MemberData(nameof(GetDateTestValues))]
         public void Handle_Should_Be_Equal(DateTime propValue, string propName, int itemCount)

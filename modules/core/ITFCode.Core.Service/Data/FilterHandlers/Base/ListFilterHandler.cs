@@ -25,9 +25,16 @@ namespace ITFCode.Core.Service.Data.FilterHandlers.Base
 
             var filterValues = (Filter as FilterListOption<TValue>)?.Values ?? throw new NullReferenceException("Cannot get list of values");
 
-            if (value.Type == typeof(TValue?))
+            var underlyingType = Nullable.GetUnderlyingType(value.Type);
+
+            bool isNullable = underlyingType != null;
+
+            //if (value.Type == typeof(TValue?))
+            if (isNullable)
             {
-                methodInfo = typeof(List<TValue?>).GetMethod("Contains", new Type[] { typeof(TValue?) });
+
+                //methodInfo = typeof(List<TValue?>).GetMethod("Contains", new Type[] { typeof(TValue?) });
+                methodInfo = value.Type.GetMethod("Contains", new Type[] { typeof(TValue?) });
                 list = Expression.Constant(filterValues.Select(x => (TValue?)x).ToList());
             }
             else

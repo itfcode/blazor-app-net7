@@ -47,7 +47,6 @@ namespace ITFCode.Core.Service.Tests
             },
         };
 
-
         public static IList<Guid> Guids => _guids;
 
         public static IList<string> Strings => new List<string> { "string1", "string2", "string3" };
