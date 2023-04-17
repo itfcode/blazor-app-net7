@@ -16,7 +16,7 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
         [MemberData(nameof(GetGuidTestValues))]
         public void Handle_Should_Be_Equal(Guid propValue, string propName, int itemCount)
         {
-            var filter = CreateFilter<GuidValueFilter>(propValue, propName);
+            var filter = CreateFilter<GuidValueFilter>(propName, propValue);
             var expression = new GuidValueFilterHandler(filter).Handle<SimpeItem>();
             var res = TestData.Items.Where(expression).ToList();
 

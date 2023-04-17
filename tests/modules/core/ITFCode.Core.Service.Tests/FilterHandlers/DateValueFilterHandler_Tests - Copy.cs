@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace ITFCode.Core.Service.Tests.FilterHandlers
 {
-    public class DateValueFilterHandler_Tests : BaseValueFilterHandler_Tests<DateTime>
+    public class DateValueFilterHandler_Tests1 : BaseValueFilterHandler_Tests<DateTime>
     {
 
         [Fact]

@@ -32,7 +32,6 @@ namespace ITFCode.Core.Service.Data.FilterHandlers.Base
             //if (value.Type == typeof(TValue?))
             if (isNullable)
             {
-
                 //methodInfo = typeof(List<TValue?>).GetMethod("Contains", new Type[] { typeof(TValue?) });
                 methodInfo = value.Type.GetMethod("Contains", new Type[] { typeof(TValue?) });
                 list = Expression.Constant(filterValues.Select(x => (TValue?)x).ToList());

@@ -29,11 +29,11 @@ namespace ITFCode.Core.Service.Data.FilterHandlers
                 case DateFilterMatchMode.LessThanOrEquals:
                     body = Expression.LessThanOrEqual(property, value);
                     break;
-                case DateFilterMatchMode.GreaterThanOrEquals:
-                    body = Expression.GreaterThanOrEqual(property, value);
-                    break;
                 case DateFilterMatchMode.GreaterThan:
                     body = Expression.GreaterThan(property, value);
+                    break;
+                case DateFilterMatchMode.GreaterThanOrEquals:
+                    body = Expression.GreaterThanOrEqual(property, value);
                     break;
                 case DateFilterMatchMode.Equals:
                     body = Expression.Equal(property, value);

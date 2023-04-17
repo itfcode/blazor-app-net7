@@ -16,7 +16,7 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
         [MemberData(nameof(GetBoolTestValues))]
         public void Handle_Should_Be_Equal(bool propValue, string propName, int itemCount)
         {
-            var filter = CreateFilter<BoolValueFilter>(propValue, propName);
+            var filter = CreateFilter<BoolValueFilter>(propName, propValue);
             var expression = new BoolValueFilterHandler(filter).Handle<SimpeItem>();
             var res = TestData.Items.Where(expression).ToList();
 
