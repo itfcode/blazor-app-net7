@@ -2,7 +2,7 @@
 
 namespace ITFCode.Core.DTO.FilterOptions
 {
-    public class NumericListFilter : FilterListOption<int>
+    public class NumericListFilter : FilterListOption<double>
     {
     }
 }
