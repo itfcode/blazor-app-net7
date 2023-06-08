@@ -1,4 +1,4 @@
-﻿namespace ITFCode.Core
+﻿namespace ITFCode.Core.Patterns
 {
     // https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose
     public abstract class DisposableBaseCore : IDisposable

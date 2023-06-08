@@ -12,13 +12,5 @@
         public static DateTime CopyTime(this DateTime self, DateTime source)
             => new(self.Year, self.Month, self.Day, source.Hour, source.Minute, source.Second);
 
-        public static DateTime ResetMilliseconds(this DateTime self)
-            => new(self.Year, self.Month, self.Day, self.Hour, self.Minute, self.Second, 0);
-
-        public static DateTime ResetSeconds(this DateTime self)
-            => new(self.Year, self.Month, self.Day, self.Hour, self.Minute, 0);
-
-        public static DateTime ResetMinutes(this DateTime self)
-            => new(self.Year, self.Month, self.Day, self.Hour, 0, 0);
     }
 }

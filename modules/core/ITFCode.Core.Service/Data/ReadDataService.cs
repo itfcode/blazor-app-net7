@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
 using System.Reflection;
+using ITFCode.Core.Patterns;
 
 namespace ITFCode.Core.Service.Data
 {

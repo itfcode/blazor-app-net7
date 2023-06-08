@@ -3,6 +3,7 @@ using ITFCode.Core.Domain.Entities.Base.Interfaces;
 using ITFCode.Core.Domain.Repositories.Interfaces;
 using ITFCode.Core.DTO.Entities.Base.Interfaces;
 using ITFCode.Core.DTO.FilterOptions;
+using ITFCode.Core.Patterns;
 using ITFCode.Core.Service.Data.Base.Interfaces;
 using Microsoft.Extensions.Logging;
 

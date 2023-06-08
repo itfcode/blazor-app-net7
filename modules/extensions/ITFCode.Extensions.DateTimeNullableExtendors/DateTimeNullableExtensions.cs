@@ -5,6 +5,9 @@
         public static DateTime CopyTime(this DateTime self, DateTime source, bool throwIfNull = true)
             => throw new NotImplementedException();
 
+        public static DateTime ResetTicks(this DateTime self, bool throwIfNull = true)
+            => throw new NotImplementedException();
+
         public static DateTime ResetMilliseconds(this DateTime self, bool throwIfNull = true)
             => throw new NotImplementedException();
 
