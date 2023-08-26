@@ -79,7 +79,7 @@ namespace ITFCode.Core.Domain.Repositories
         {
             try
             {
-                return (T)ServiceProvider.GetService(typeof(T)) 
+                return (T)ServiceProvider.GetService(typeof(T))
                     ?? throw new NullReferenceException($"Provider cannot define the service '{typeof(T)}'");
             }
             catch (Exception ex)
