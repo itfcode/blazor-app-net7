@@ -13,8 +13,8 @@
 
         #region Public Methods 
 
-        public static string Generate(bool useLowercase, bool useUppercase, bool useNumbers, bool useSpecial,
-            int passwordSize)
+        public static string Generate(bool useLowercase = true, bool useUppercase = true, bool useNumbers = true, bool useSpecial = true,
+            int passwordSize = 10)
         {
             string charSet = string.Empty;
 

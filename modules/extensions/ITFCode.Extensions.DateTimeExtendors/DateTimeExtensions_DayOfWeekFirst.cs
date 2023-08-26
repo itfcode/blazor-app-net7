@@ -4,6 +4,8 @@
 
     public static partial class DateTimeExtensions
     {
+        #region Public methods 
+
         /// <summary>
         /// Gets date of first Monday of month by input date 
         /// </summary>
@@ -53,6 +55,10 @@
         /// <returns>Date of first Sunday</returns>
         public static DateTime SundayFirst(this DateTime self) => GetFirstDayOfWeekForMonth(self, DayOfWeek.Sunday);
 
+        #endregion
+
+        #region Private Methods
+
         private static DateTime GetFirstDayOfWeekForMonth(DateTime date, DayOfWeek dayOfWeek)
         {
             var first = new DateTime(date.Year, date.Month, 1);
@@ -62,5 +68,7 @@
 
             return first.Date;
         }
+
+        #endregion
     }
 }

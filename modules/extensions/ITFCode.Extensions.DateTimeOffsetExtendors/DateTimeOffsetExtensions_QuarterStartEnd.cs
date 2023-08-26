@@ -2,17 +2,27 @@
 {
     public static partial class DateTimeOffsetExtensions
     {
+        #region Public methods: 'QuarterStart'
+
         public static DateTimeOffset QuarterStartAt(this DateTimeOffset self, int quarters) => GetQuarterStart(self).AddMonths(quarters * 3);
         public static DateTimeOffset QuarterStart(this DateTimeOffset self) => self.QuarterStartAt(0);
         public static DateTimeOffset QuarterStartPrev(this DateTimeOffset self) => self.QuarterStartAt(-1);
         public static DateTimeOffset QuarterStartNext(this DateTimeOffset self) => self.QuarterStartAt(1);
+
+        #endregion
+
+        #region Public methods: 'QuarterEndAt'
 
         public static DateTimeOffset QuarterEndAt(this DateTimeOffset self, int quarters) => self.QuarterStartAt(quarters + 1).AddTicks(-1);
         public static DateTimeOffset QuarterEnd(this DateTimeOffset self) => self.QuarterEndAt(0);
         public static DateTimeOffset QuarterEndPrev(this DateTimeOffset self) => self.QuarterEndAt(-1);
         public static DateTimeOffset QuarterEndNext(this DateTimeOffset self) => self.QuarterEndAt(1);
 
-        private static DateTimeOffset GetQuarterStart(DateTimeOffset date) 
+        #endregion
+
+        #region Private Methods
+
+        private static DateTimeOffset GetQuarterStart(DateTimeOffset date)
         {
             var quarterNumber = date.Month switch
             {
@@ -24,6 +34,8 @@
             };
 
             return new DateTimeOffset(date.Year, quarterNumber * 3 + 1, 1, 0, 0, 0, date.Offset);
-        } 
+        }
+
+        #endregion
     }
 }

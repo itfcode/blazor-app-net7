@@ -4,6 +4,8 @@
 
     public static partial class DateTimeExtensions
     {
+        #region Public methods 
+
         /// <summary>
         /// Gets date of last Monday of month from date 
         /// </summary>
@@ -53,6 +55,10 @@
         /// <returns>Date of last Sunday</returns>
         public static DateTime SundayLast(this DateTime self) => GetLastDayOfWeekForMonth(self, DayOfWeek.Sunday);
 
+        #endregion
+
+        #region Private methods 
+
         private static DateTime GetLastDayOfWeekForMonth(DateTime date, DayOfWeek dayOfWeek)
         {
             var last = new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
@@ -62,5 +68,7 @@
 
             return last.Date;
         }
+
+        #endregion
     }
 }

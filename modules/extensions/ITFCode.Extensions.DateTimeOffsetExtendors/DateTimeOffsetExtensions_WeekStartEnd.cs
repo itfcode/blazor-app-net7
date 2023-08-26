@@ -2,15 +2,25 @@
 {
     public static partial class DateTimeOffsetExtensions
     {
+        #region Public methods 'WeekStart'
+
         public static DateTimeOffset WeekStartAt(this DateTimeOffset self, int weeks) => GetWeekStart(self).AddDays(weeks * 7);
         public static DateTimeOffset WeekStart(this DateTimeOffset self) => self.WeekStartAt(0);
         public static DateTimeOffset WeekStartPrev(this DateTimeOffset self) => self.WeekStartAt(-1);
         public static DateTimeOffset WeekStartNext(this DateTimeOffset self) => self.WeekStartAt(1);
 
+        #endregion
+
+        #region Public methods 'WeekEnd'
+
         public static DateTimeOffset WeekEndAt(this DateTimeOffset self, int weeks) => self.WeekStartAt(weeks + 1).AddTicks(-1);
         public static DateTimeOffset WeekEnd(this DateTimeOffset self) => self.WeekEndAt(0);
         public static DateTimeOffset WeekEndPrev(this DateTimeOffset self) => self.WeekEndAt(-1);
         public static DateTimeOffset WeekEndNext(this DateTimeOffset self) => self.WeekEndAt(1);
+
+        #endregion
+
+        #region Private Methods 
 
         private static DateTimeOffset GetWeekStart(DateTimeOffset date)
         {
@@ -27,5 +37,7 @@
             };
             return date.AddDays(-1 * dayMinus).Date;
         }
+
+        #endregion
     }
 }

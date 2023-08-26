@@ -20,13 +20,13 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
         [Fact]
         public void ResetMinutes_Test1()
         {
-            //
+
         }
 
         [Fact]
         public void ResetHours_Test1()
         {
-            //
+
         }
 
         public static IEnumerable<object[]> TestDataForReset()
