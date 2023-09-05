@@ -10,8 +10,7 @@ namespace ITFCode.Core.DTO.Tests.FilterOptions
         [Fact]
         public void BoolValueFilter_Test()
         {
-            var filterOptions = new BoolValueFilter();
-            Assert.True(filterOptions is FilterValueOption<bool>);
+            Assert.True(typeof(BoolValueFilter).IsSubclassOf(typeof(FilterValueOption<bool>)));
         }
 
         #endregion

@@ -2,6 +2,8 @@
 {
     public static partial class DateTimeNullableExtensions
     {
+        #region Totals
+
         public static int TotalMinutes(this DateTime? self, bool throwIfNull = true)
             => Exec(self, nameof(TotalMinutes), d => d.Value.Minute + d.Value.Hour * 60, throwIfNull);
 
@@ -10,6 +12,11 @@
 
         public static int TotalMilliseconds(this DateTime? self, bool throwIfNull = true)
             => Exec(self, nameof(TotalMilliseconds), d => d.TotalSeconds() * 1000 + d.Value.Millisecond, throwIfNull);
+
+        #endregion
+
+
+        #region Private Methods 
 
         private static int Exec(DateTime? date, string methodName, Func<DateTime?, int> expression, bool throwIfNull = true)
         {
@@ -21,5 +28,7 @@
             else
                 return expression(date);
         }
+
+        #endregion
     }
 }

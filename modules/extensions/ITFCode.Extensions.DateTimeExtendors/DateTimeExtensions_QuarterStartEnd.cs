@@ -4,15 +4,25 @@
 
     public static partial class DateTimeExtensions
     {
+        #region Quarter Start 
+
         public static DateTime QuarterStartAt(this DateTime self, int quarters) => GetQuaterStart(self).AddMonths(quarters * 3);
         public static DateTime QuarterStart(this DateTime self) => self.QuarterStartAt(0);
         public static DateTime QuarterStartPrev(this DateTime self) => self.QuarterStartAt(-1);
         public static DateTime QuarterStartNext(this DateTime self) => self.QuarterStartAt(1);
 
+        #endregion
+
+        #region Quarter End
+
         public static DateTime QuarterEnd(this DateTime self) => self.QuarterStartAt(1).AddTicks(-1);
         public static DateTime QuarterEndAt(this DateTime self, int quarters) => self.QuarterStartAt(quarters + 1).AddTicks(-1);
         public static DateTime QuarterEndPrev(this DateTime self) => self.QuarterEndAt(-1);
         public static DateTime QuarterEndNext(this DateTime self) => self.QuarterEndAt(1);
+
+        #endregion
+
+        #region Private Methods 
 
         private static DateTime GetQuaterStart(DateTime date)
         {
@@ -27,5 +37,7 @@
 
             return new DateTime(date.Year, quarterNumber * 3 + 1, 1);
         }
+
+        #endregion
     }
 }

@@ -2,6 +2,8 @@
 {
     public static partial class DateTimeNullableExtensions
     {
+        #region Extended for DateTime?
+
         public static DateTime? Add(this DateTime? self, TimeSpan value, bool throwIfNull = true)
             => Exec(self, nameof(Add), x => x.Value.Add(value), throwIfNull);
 
@@ -28,5 +30,7 @@
 
         public static DateTime? AddYears(this DateTime? self, int value, bool throwIfNull = true)
             => Exec(self, nameof(AddYears), x => x.Value.AddYears(value), throwIfNull);
+
+        #endregion
     }
 }

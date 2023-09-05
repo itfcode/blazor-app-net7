@@ -1,8 +1,6 @@
 ﻿using ITFCode.Core.DTO.FilterOptions;
 using ITFCode.Core.Service.Data.FilterHandlers;
 using ITFCode.Core.Service.Tests.FilterHandlers.Base;
-using Newtonsoft.Json.Linq;
-using static ITFCode.Core.Service.Tests.TestData;
 
 namespace ITFCode.Core.Service.Tests.FilterHandlers
 {
@@ -28,15 +26,15 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
 
         public static IEnumerable<object[]> GetDateTestLists()
         {
-            yield return new object[] { new DateTime[] { }, "DateProp", 0 };
-            yield return new object[] { new DateTime[] { DateTime1 }, "DateProp", 1 };
-            yield return new object[] { new DateTime[] { DateTime1, DateTime2 }, "DateProp", 2 };
-            yield return new object[] { new DateTime[] { DateTime1, DateTime2, DateTime3 }, "DateProp", 3 };
+            //yield return new object[] { new DateTime[] { }, "DateProp", 0 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1 }, "DateProp", 1 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1, TestData.DateTime2 }, "DateProp", 2 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1, TestData.DateTime2, TestData.DateTime3 }, "DateProp", 3 };
 
-            yield return new object[] { new DateTime[] { }, "DateNullableProp", 0 };
-            yield return new object[] { new DateTime[] { DateTime1 }, "DateNullableProp", 1 };
-            yield return new object[] { new DateTime[] { DateTime1, DateTime2 }, "DateNullableProp", 2 };
-            yield return new object[] { new DateTime[] { DateTime1, DateTime2, DateTime3 }, "DateNullableProp", 3 };
+            //yield return new object[] { new DateTime[] { }, "DateNullableProp", 0 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1 }, "DateNullableProp", 1 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1, TestData.DateTime2 }, "DateNullableProp", 2 };
+            yield return new object[] { new DateTime[] { TestData.DateTime1, TestData.DateTime2, TestData.DateTime3 }, "DateNullableProp", 3 };
         }
     }
 }

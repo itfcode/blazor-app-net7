@@ -2,6 +2,8 @@
 {
     public class DateTime_DayStartEnd_Tests
     {
+        #region Tests 
+
         [Theory]
         [MemberData(nameof(TestDataFor_DayStartEnd))]
         public void DayStartAt_Test(DateTime date)
@@ -57,6 +59,10 @@
         {
         }
 
+        #endregion
+
+        #region Tests Data 
+
         public static IEnumerable<object[]> TestDataFor_DayStartEnd()
         {
             var data = new List<object[]>();
@@ -72,5 +78,7 @@
 
             return data;
         }
+
+        #endregion
     }
 }

@@ -2,6 +2,8 @@
 {
     public static partial class DateTimeNullableExtensions
     {
+        #region Quarter Start 
+
         public static DateTime? QuarterStartAt(this DateTime? self, int quarters, bool throwIfNull = true)
             => Exec(self, nameof(QuarterStartAt), d => GetQuarterStart(d).Value.AddMonths(quarters * 3), throwIfNull);
 
@@ -14,6 +16,10 @@
         public static DateTime? QuarterStartNext(this DateTime? self, bool throwIfNull = true)
             => Exec(self, nameof(QuarterStartNext), d => d.QuarterStartAt(1), throwIfNull);
 
+        #endregion
+
+        #region Quarter End 
+
         public static DateTime? QuarterEndAt(this DateTime? self, int quarters, bool throwIfNull = true)
             => Exec(self, nameof(QuarterEndAt), d => d.QuarterStartAt(quarters + 1).Value.AddTicks(-1), throwIfNull);
 
@@ -25,6 +31,10 @@
 
         public static DateTime? QuarterEndNext(this DateTime? self, bool throwIfNull = true)
             => Exec(self, nameof(QuarterEndNext), d => d.QuarterEndAt(1), throwIfNull);
+
+        #endregion
+
+        #region Private Methods 
 
         private static DateTime? GetQuarterStart(DateTime? date, bool throwIfNull = true)
         {
@@ -44,5 +54,7 @@
 
             return new DateTime(date.Value.Year, ((quarterNumber - 1) * 3) + 1, 1);
         }
+
+        #endregion
     }
 }

@@ -2,6 +2,8 @@
 {
     public static partial class DateTimeNullableExtensions
     {
+        #region  Day Last
+
         public static DateTime? MondayLast(this DateTime? self, bool throwIfNull = true)
             => GetLastDayOfWeekForMonth(self, DayOfWeek.Monday, throwIfNull);
 
@@ -23,6 +25,10 @@
         public static DateTime? SundayLast(this DateTime? self, bool throwIfNull = true)
             => GetLastDayOfWeekForMonth(self, DayOfWeek.Sunday, throwIfNull);
 
+        #endregion
+
+        #region Private Methods 
+
         private static DateTime? GetLastDayOfWeekForMonth(DateTime? date, DayOfWeek dayOfWeek, bool throwIfNull = true)
         {
             if (!date.HasValue && throwIfNull)
@@ -37,5 +43,7 @@
 
             return last.Date;
         }
+
+        #endregion
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace ITFCode.Core.Service.Tests
+﻿namespace ITFCode.Core.Service.Tests
 {
     public static class TestData
     {
@@ -11,9 +8,9 @@ namespace ITFCode.Core.Service.Tests
 
         #endregion
 
-        private static IList<Guid> _guids = new List<Guid> { Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid() };
+        private static readonly IList<Guid> _guids = new List<Guid> { Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid() };
 
-        private static IList<SimpeItem> _simpeItems = new List<SimpeItem>
+        private static readonly IList<SimpeItem> _simpeItems = new List<SimpeItem>
         {
             new SimpeItem
             {

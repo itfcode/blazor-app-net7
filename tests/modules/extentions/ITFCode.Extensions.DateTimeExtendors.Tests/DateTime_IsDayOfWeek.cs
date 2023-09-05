@@ -1,10 +1,9 @@
-using System.Security.Cryptography;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 namespace ITFCode.Extensions.DateTimeExtendors.Tests
 {
     public partial class DateTime_Reset
     {
+        #region Tests
+
         [Fact]
         public void ResetMilliseconds_Test1()
         {
@@ -29,6 +28,10 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
 
         }
 
+        #endregion
+
+        #region Test Data
+
         public static IEnumerable<object[]> TestDataForReset()
         {
             var data = new List<object[]>();
@@ -48,5 +51,7 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
 
             return data;
         }
+
+        #endregion
     }
 }

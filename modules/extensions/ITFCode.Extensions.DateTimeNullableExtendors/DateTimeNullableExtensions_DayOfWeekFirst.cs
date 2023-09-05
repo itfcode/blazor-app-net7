@@ -2,6 +2,8 @@
 {
     public static partial class DateTimeNullableExtensions
     {
+        #region Day First 
+
         public static DateTime? MondayFirst(this DateTime? self, bool throwIfNull = true)
             => GetFirstDayOfWeekForMonth(self, DayOfWeek.Monday, throwIfNull);
 
@@ -23,6 +25,10 @@
         public static DateTime? SundayFirst(this DateTime? self, bool throwIfNull = true)
             => GetFirstDayOfWeekForMonth(self, DayOfWeek.Sunday, throwIfNull);
 
+        #endregion
+
+        #region Private Methods 
+
         private static DateTime? GetFirstDayOfWeekForMonth(DateTime? date, DayOfWeek dayOfWeek, bool throwIfNull = true)
         {
             if (!date.HasValue && throwIfNull)
@@ -37,5 +43,7 @@
 
             return first.Date;
         }
+
+        #endregion
     }
 }

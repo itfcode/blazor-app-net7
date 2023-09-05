@@ -4,15 +4,25 @@
 
     public static partial class DateTimeExtensions
     {
+        #region Week Start
+
         public static DateTime WeekStartAt(this DateTime self, int weeks) => GetWeekStart(self).AddDays(weeks * 7);
         public static DateTime WeekStart(this DateTime self) => self.WeekStartAt(0);
-        public static DateTime WeekStartPrev(this DateTime self) => self.WeekStartAt(-1);     
+        public static DateTime WeekStartPrev(this DateTime self) => self.WeekStartAt(-1);
         public static DateTime WeekStartNext(this DateTime self) => self.WeekStartAt(1);
+
+        #endregion
+
+        #region Week End
 
         public static DateTime WeekEndAt(this DateTime self, int weeks) => self.WeekStartAt(weeks + 1).AddTicks(-1);
         public static DateTime WeekEnd(this DateTime self) => self.WeekEndAt(0);
         public static DateTime WeekEndPrev(this DateTime self) => self.WeekEndAt(-1);
         public static DateTime WeekEndNext(this DateTime self) => self.WeekEndAt(1);
+
+        #endregion
+
+        #region Private Methods 
 
         private static DateTime GetWeekStart(DateTime date)
         {
@@ -29,5 +39,7 @@
             };
             return date.AddDays(-1 * dayMinus).Date;
         }
+
+        #endregion
     }
 }

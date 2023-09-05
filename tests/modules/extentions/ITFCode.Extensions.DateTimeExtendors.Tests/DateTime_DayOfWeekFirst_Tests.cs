@@ -2,6 +2,8 @@
 {
     public class DateTime_DayOfWeekFirst_Tests
     {
+        #region Tests 
+
         [Theory]
         [MemberData(nameof(TestDataFor_DayOfWeekFirst))]
         public void MondayFirst_Test(DateTime date)
@@ -65,6 +67,10 @@
             Assert.True(sunday.Day <= 7);
         }
 
+        #endregion
+
+        #region Test Data 
+
         public static IEnumerable<object[]> TestDataFor_DayOfWeekFirst()
         {
             var now = DateTime.Now;
@@ -85,5 +91,7 @@
 
             return data;
         }
+
+        #endregion
     }
 }

@@ -4,6 +4,8 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
 {
     public partial class DateTime_Reset
     {
+        #region Tests 
+
         [Theory]
         [MemberData(nameof(TestDataForMonthStartEnd))]
         public void MonthStartAt_Test(DateTime sourceDate)
@@ -128,6 +130,10 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
             Assert.Equal(1, targetDate.Day);
         }
 
+        #endregion
+
+        #region Tests Data
+
         public static IEnumerable<object[]> TestDataForMonthStartEnd()
         {
             var now = DateTime.Now;
@@ -145,5 +151,7 @@ namespace ITFCode.Extensions.DateTimeExtendors.Tests
 
             return data;
         }
+
+        #endregion
     }
 }

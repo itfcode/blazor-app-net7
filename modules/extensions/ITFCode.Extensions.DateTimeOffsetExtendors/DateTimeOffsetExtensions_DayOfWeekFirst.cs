@@ -30,7 +30,7 @@
             while (first.DayOfWeek != dayOfWeek)
                 first = first.AddDays(1);
 
-            return first.Date;
+            return first;
         }
     }
 }

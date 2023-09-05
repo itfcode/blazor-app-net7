@@ -8,6 +8,6 @@ namespace ITFCode.Core.DTO.Entities
         public int Total { get; set; }
 
         [JsonProperty("items")]
-        public IEnumerable<TEnityDTO> Items { get; set; } = Enumerable.Empty<TEnityDTO>();
+        public IReadOnlyCollection<TEnityDTO> Items { get; set; } = new List<TEnityDTO>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ITFCode.Core.DTO.FilterOptions;
+using ITFCode.Core.DTO.FilterOptions.Base;
 using ITFCode.Core.Service.Data.FilterHandlers;
 using ITFCode.Core.Service.Tests.FilterHandlers.Base;
 using static ITFCode.Core.Service.Tests.TestData;
@@ -8,9 +9,16 @@ namespace ITFCode.Core.Service.Tests.FilterHandlers
     public class DateRangeFilterHandler_Tests : BaseRangeFilterHandler_Tests<DateTime>
     {
         [Fact]
+        public void Check_Parent_Class()
+        {
+            Assert.True(typeof(DateRangeFilter).IsSubclassOf(typeof(FilterRangeOption<DateTime>)));
+        }
+
+        [Fact]
         public void Constructor_Throw_If_Parameter_Is_Null() 
         {
-            Assert.Throws<ArgumentNullException>(() => new DateRangeFilterHandler(null));
+            DateRangeFilter? filter = null;
+            Assert.Throws<ArgumentNullException>(() => new DateRangeFilterHandler(filter));
         }
 
         [Theory]
