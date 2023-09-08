@@ -7,8 +7,14 @@ namespace ITFCode.Core.Domain.DataContext
     public abstract class AppicationDdContextCoreFactory<TDbContext> : IDesignTimeDbContextFactory<TDbContext>
         where TDbContext : ApplicationDbContextCore
     {
+        #region Protected Properties
+
         protected virtual string AppSettingsFile => "appsettings.json";
         protected virtual string ConnectionString => "DefaultDataContextConnection";
+
+        #endregion
+
+        #region IDesignTimeDbContextFactory Implementation
 
         public TDbContext CreateDbContext(string[] args)
         {
@@ -36,5 +42,7 @@ namespace ITFCode.Core.Domain.DataContext
 
             return (TDbContext)Activator.CreateInstance(typeof(TDbContext), optionsBuilder.Options);
         }
+
+        #endregion
     }
 }

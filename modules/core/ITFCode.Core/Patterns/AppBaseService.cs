@@ -3,23 +3,23 @@ using Microsoft.Extensions.Logging;
 
 namespace ITFCode.Core.Patterns
 {
-    public abstract class AppServiceBase : DisposableBaseCore
+    public abstract class AppBaseService : DisposableBaseCore
     {
         #region Private & Protected Fields 
 
-        private readonly ILogger<AppServiceBase> _logger;
+        private readonly ILogger<AppBaseService> _logger;
 
         #endregion
 
         #region Protected Properties 
 
-        protected ILogger<AppServiceBase> Logger => _logger ?? throw new PropertyNotDefinedException(nameof(Logger));
+        protected ILogger<AppBaseService> Logger => _logger ?? throw new PropertyNotDefinedException(nameof(Logger));
 
         #endregion
 
         #region Constructors 
 
-        public AppServiceBase(ILogger<AppServiceBase> logger)
+        public AppBaseService(ILogger<AppBaseService> logger)
         {
             _logger = logger;
         }

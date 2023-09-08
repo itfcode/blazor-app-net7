@@ -5,104 +5,356 @@
     /// </summary>
     public static class MimeTypes
     {
-        public static readonly string Audio_3GP = "audio/3gpp"; // .3gp	3GPP audio/video container video/3gpp
-        public static readonly string Video_3GP = "video/3gpp"; // .3gp	3GPP audio/video container video/3gpp
-        public static readonly string Audio_3G2 = "audio/3gpp2"; // .3g2 3GPP2 audio/video container video/3gpp2
-        public static readonly string Video_3G2 = "video/3gpp2"; // .3g2 3GPP2 audio/video container video/3gpp2
-        public static readonly string ARC_7z = "application/x-7z-compressed"; // .7z 7-zip archive
-   
-        public static readonly string AAC = "audio/aac"; // .aac AAC audio
-        public static readonly string ABW = "application/x-abiword"; // .abw AbiWord document
-        public static readonly string ARC = "application/x-freearc"; // .arc Archive document(multiple files embedded)
-        public static readonly string AVI = "video/x-msvideo"; // .avi AVI: Audio Video Interleave
-        public static readonly string AZW = "application/vnd.amazon.ebook"; // .azw Amazon Kindle eBook format
-        
-        public static readonly string BIN = "application/octet-stream"; // .bin Any kind of binary data
-        public static readonly string BMP = "image/bmp"; // .bmp Windows OS/2 Bitmap Graphics
-        public static readonly string BZ = "application/x-bzip"; // .bz BZip archive
-        public static readonly string BZ2 = "application/x-bzip2"; // .bz2 BZip2 archive
-        
-        public static readonly string CDA = "application/x-cdf"; // .cda CD audio
-        public static readonly string CSH = "application/x-csh"; // .csh C-Shell script
-        public static readonly string CSS = "text/css"; // .css Cascading Style Sheets(CSS)    
-        public static readonly string CSV = "text/csv"; // .csv Comma-separated values(CSV)    
-        
-        public static readonly string DOC = "application/msword"; // .doc Microsoft Word 
-        public static readonly string DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"; // .docx Microsoft Word(OpenXML)    
-        
-        public static readonly string EOT = "application/vnd.ms-fontobject"; // .eot MS Embedded OpenType fonts
-        public static readonly string EPUB = "application/epub+zip"; // .epub Electronic publication(EPUB)
-        
-        public static readonly string GIF = "image/gif"; // .gif Graphics Interchange Format(GIF)
-        public static readonly string GZ = "application/gzip"; // .gz GZip Compressed Archive
-        
-        public static readonly string HTM = "text/html"; // .htm HyperText Markup Language(HTML)  
-        public static readonly string HTML = "text/html"; // .html HyperText Markup Language(HTML)
-        
-        public static readonly string ICO = "image/vnd.microsoft.icon"; // .ico Icon format
-        public static readonly string ICS = "text/calendar"; // .ics iCalendar format
-        
-        public static readonly string JAR = "application/java-archive"; // .jar Java Archive(JAR)
-        public static readonly string JPEG = "image/jpeg"; // .jpeg JPEG images
-        public static readonly string JPG = "image/jpeg"; // .jpg JPEG images
-        public static readonly string JS = "text/javascript"; // .js JavaScript
-        public static readonly string JSON = "application/json"; // .json JSON format
-        public static readonly string JSONLD = "application/ld+json"; // .jsonld JSON-LD format
+        /// <summary>
+        /// .3gp, 3GPP audio/video container video/3gpp
+        /// </summary>
+        public const string Audio_3GP = "audio/3gpp";
+        /// <summary>
+        /// .3gp, 3GPP audio/video container video/3gpp
+        /// </summary>
+        public const string Video_3GP = "video/3gpp";
+        /// <summary>
+        /// .3g2, 3GPP2 audio/video container video/3gpp2
+        /// </summary>
+        public const string Audio_3G2 = "audio/3gpp2";
+        /// <summary>
+        /// .3g2, 3GPP2 audio/video container video/3gpp2
+        /// </summary>
+        public const string Video_3G2 = "video/3gpp2";
 
-        public static readonly string MID = "audio/midi"; // .mid Musical Instrument Digital Interface(MIDI)
-        public static readonly string MIDI = "audio/x-midi"; // .midi Musical Instrument Digital Interface(MIDI)
-        public static readonly string MJS = "text/javascript"; // .mjs JavaScript module
-        public static readonly string MP3 = "audio/mpeg"; // .mp3 MP3 audio
-        public static readonly string MP4 = "video/mp4"; // .mp4 MP4 audio
-        public static readonly string MPEG = "video/mpeg"; // .mpeg MPEG Video 
-        public static readonly string MPKG = "application/vnd.apple.installer+xml"; // .mpkg Apple Installer Package 
+        /// <summary>
+        /// .7z, 7-zip archive
+        /// </summary>
+        public const string ARC_7z = "application/x-7z-compressed";
+
+        /// <summary>
+        /// .aac AAC audio
+        /// </summary>
+        public const string AAC = "audio/aac";
+        /// <summary>
+        /// .abw AbiWord document
+        /// </summary>
+        public const string ABW = "application/x-abiword";
+        /// <summary>
+        /// .arc, Archive document(multiple files embedded)
+        /// </summary>
+        public const string ARC = "application/x-freearc";
+        /// <summary>
+        /// .avi, AVI: Audio Video Interleave
+        /// </summary>
+        public const string AVI = "video/x-msvideo";
+        /// <summary>
+        /// .azw, Amazon Kindle eBook format
+        /// </summary>
+        public const string AZW = "application/vnd.amazon.ebook";
+
+        /// <summary>
+        /// .bin, Any kind of binary data
+        /// </summary>
+        public const string BIN = "application/octet-stream";
+        /// <summary>
+        /// .bmp, Windows OS/2 Bitmap Graphics
+        /// </summary>
+        public const string BMP = "image/bmp";
+        /// <summary>
+        /// .bz, BZip archive
+        /// </summary>
+        public const string BZ = "application/x-bzip";
+        /// <summary>
+        /// .bz2, BZip2 archive
+        /// </summary>
+        public const string BZ2 = "application/x-bzip2";
+
+        /// <summary>
+        /// .cda, CD audio
+        /// </summary>
+        public const string CDA = "application/x-cdf";
+        /// <summary>
+        /// .csh, C-Shell script
+        /// </summary>
+        public const string CSH = "application/x-csh";
+        /// <summary>
+        /// .css, Cascading Style Sheets(CSS)    
+        /// </summary>
+        public const string CSS = "text/css";
+        /// <summary>
+        /// .csv, Comma-separated values(CSV)    
+        /// </summary>
+        public const string CSV = "text/csv";
+
+        /// <summary>
+        /// .doc, Microsoft Word 
+        /// </summary>
+        public const string DOC = "application/msword";
+        /// <summary>
+        /// .docx, Microsoft Word(OpenXML)    
+        /// </summary>
+        public const string DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
+        /// <summary>
+        /// .eot, MS Embedded OpenType fonts
+        /// </summary>
+        public const string EOT = "application/vnd.ms-fontobject";
+        /// <summary>
+        /// .epub, Electronic publication(EPUB)
+        /// </summary>
+        public const string EPUB = "application/epub+zip";
+
+        /// <summary>
+        /// .gif, Graphics Interchange Format(GIF)
+        /// </summary>
+        public const string GIF = "image/gif";
+        /// <summary>
+        /// .gz, GZip Compressed Archive
+        /// </summary>
+        public const string GZ = "application/gzip";
+
+        /// <summary>
+        /// .htm, HyperText Markup Language(HTML) 
+        /// </summary>
+        public const string HTM = "text/html";
+        /// <summary>
+        /// .html, HyperText Markup Language(HTML)
+        /// </summary>
+        public const string HTML = "text/html";
         
-        public static readonly string ODP = "application/vnd.oasis.opendocument.presentation"; // .odp OpenDocument presentation document  
-        public static readonly string ODS = "application/vnd.oasis.opendocument.spreadsheet"; // .ods OpenDocument spreadsheet document   
-        public static readonly string ODT = "application/vnd.oasis.opendocument.text"; // .odt OpenDocument text document  
-        public static readonly string OGA = "audio/ogg"; // .oga OGG audio 
-        public static readonly string OGV = "video/ogg"; // .ogv OGG video 
-        public static readonly string OGX = "application/ogg"; // .ogx OGG
-        public static readonly string OPUS = "audio/opus"; // .opus Opus audio
-        public static readonly string OTF = "font/otf"; // .otf OpenType font
-        
-        public static readonly string PDF = "application/pdf"; // .pdf Adobe Portable Document Format(PDF)
-        public static readonly string PHP = "application/x-httpd-php"; // .php Hypertext Preprocessor(Personal Home Page)
-        public static readonly string PNG = "image/png"; // .png Portable Network Graphics
-        public static readonly string PPT = "application/vnd.ms-powerpoint"; // .ppt Microsoft PowerPoint
-        public static readonly string PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation"; // .pptx Microsoft PowerPoint(OpenXML)  
-        
-        public static readonly string RAR = "application/vnd.rar"; // .rar RAR archive
-        public static readonly string RTF = "application/rtf"; // .rtf Rich Text Format(RTF)
-        
-        public static readonly string SH = "application/x-sh"; // .sh Bourne shell script
-        public static readonly string SVG = "image/svg+xml"; // .svg Scalable Vector Graphics(SVG)
-        public static readonly string SWF = "application/x-shockwave-flash"; // .swf Small web format(SWF) or Adobe Flash document
-        
-        public static readonly string TAR = "application/x-tar"; // .tar Tape Archive(TAR)
-        public static readonly string TIF = "image/tiff"; // .tif Tagged Image File Format(TIFF)
-        public static readonly string TIFF = "image/tiff"; // .tiff Tagged Image File Format(TIFF)
-        public static readonly string TS = "video/mp2t"; // .ts MPEG transport stream
-        public static readonly string TTF = "font/ttf"; // .ttf TrueType Font
-        public static readonly string TXT = "text/plain"; // .txt Text, (generally ASCII or ISO 8859 - n)
-        
-        public static readonly string VSD = "application/vnd.visio"; // .vsd Microsoft Visio
-        
-        public static readonly string WAV = "audio/wav"; // .wav Waveform Audio Format
-        public static readonly string WEBA = "audio/webm"; // .weba WEBM audio
-        public static readonly string WEBM = "video/webm"; // .webm WEBM video
-        public static readonly string WEBP = "image/webp"; // .webp WEBP image
-        public static readonly string WOFF = "font/woff"; // .woff Web Open Font Format(WOFF)
-        public static readonly string WOFF2 = "font/woff2"; // .woff2 Web Open Font Format(WOFF)
-        
-        public static readonly string XHTML = "application/xhtml+xml"; // .xhtml XHTML
-        public static readonly string XLS = "application/vnd.ms-excel"; // .xls Microsoft Excel
-        public static readonly string XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // .xlsx Microsoft Excel(OpenXML)   
-        public static readonly string XML_NOTREADABLE = "application/xml"; // .xml XML  if not readable from casual users(RFC 3023, section 3)
-        public static readonly string XML_READABLE = "text/xml"; // if readable from casual users(RFC 3023, section 3)
-        public static readonly string XUL = "application/vnd.mozilla.xul+xml"; // .xul XUL
-        
-        public static readonly string ZIP = "application/zip"; // .zip ZIP archive
+        /// <summary>
+        /// .ico, Icon format
+        /// </summary>
+        public const string ICO = "image/vnd.microsoft.icon";
+        /// <summary>
+        /// .ics, iCalendar format
+        /// </summary>
+        public const string ICS = "text/calendar";
+
+        /// <summary>
+        /// .jar, Java Archive(JAR)
+        /// </summary>
+        public const string JAR = "application/java-archive";
+        /// <summary>
+        /// .jpeg, JPEG images
+        /// </summary>
+        public const string JPEG = "image/jpeg";
+        /// <summary>
+        /// .jpg, JPEG images
+        /// </summary>
+        public const string JPG = "image/jpeg";
+        /// <summary>
+        /// .js, JavaScript
+        /// </summary>
+        public const string JS = "text/javascript";
+        /// <summary>
+        ///  .json, JSON format
+        /// </summary>
+        public const string JSON = "application/json"; //
+        /// <summary>
+        ///  .jsonld JSON-LD format
+        /// </summary>
+        public const string JSONLD = "application/ld+json";
+
+
+        /// <summary>
+        /// .mid, Musical Instrument Digital Interface(MIDI)
+        /// </summary>
+        public const string MID = "audio/midi";
+        /// <summary>
+        /// .midi, Musical Instrument Digital Interface(MIDI)
+        /// </summary>
+        public const string MIDI = "audio/x-midi";
+        /// <summary>
+        /// .mjs, JavaScript module
+        /// </summary>
+        public const string MJS = "text/javascript";
+
+        /// <summary>
+        /// .mp3, MP3 audio
+        /// </summary>
+        public const string MP3 = "audio/mpeg";
+
+        /// <summary>
+        /// .mp4, MP4 audio
+        /// </summary>
+        public const string MP4 = "video/mp4";
+
+        /// <summary>
+        /// .mpeg, MPEG Video 
+        /// </summary>
+        public const string MPEG = "video/mpeg";
+
+        /// <summary>
+        /// .mpkg, Apple Installer Package 
+        /// </summary>
+        public const string MPKG = "application/vnd.apple.installer+xml";
+
+        /// <summary>
+        /// .odp, OpenDocument presentation document  
+        /// </summary>
+        public const string ODP = "application/vnd.oasis.opendocument.presentation"; // 
+
+        /// <summary>
+        /// .ods, OpenDocument spreadsheet document   
+        /// </summary>
+        public const string ODS = "application/vnd.oasis.opendocument.spreadsheet"; // 
+
+        /// <summary>
+        /// .odt, OpenDocument text document  
+        /// </summary>
+        public const string ODT = "application/vnd.oasis.opendocument.text"; // 
+
+        /// <summary>
+        /// .oga, OGG audio
+        /// </summary>
+        public const string OGA = "audio/ogg";
+                                               
+        /// <summary>
+        /// .ogv, OGG video 
+        /// </summary>
+        public const string OGV = "video/ogg";
+
+        /// <summary>
+        /// .ogx, OGG
+        /// </summary>
+        public const string OGX = "application/ogg";
+
+        /// <summary>
+        /// .opus, Opus audio
+        /// </summary>
+        public const string OPUS = "audio/opus";
+
+        /// <summary>
+        /// .otf, OpenType font
+        /// </summary>
+        public const string OTF = "font/otf";
+
+        /// <summary>
+        /// .pdf, Adobe Portable Document Format(PDF)
+        /// </summary>
+        public const string PDF = "application/pdf";
+
+        /// <summary>
+        /// .php, Hypertext Preprocessor(Personal Home Page)
+        /// </summary>
+        public const string PHP = "application/x-httpd-php";
+        /// <summary>
+        /// .png, Portable Network Graphics
+        /// </summary>
+        public const string PNG = "image/png";
+
+        /// <summary>
+        /// .ppt, Microsoft PowerPoint
+        /// </summary>
+        public const string PPT = "application/vnd.ms-powerpoint";
+        /// <summary>
+        /// .pptx, Microsoft PowerPoint(OpenXML)
+        /// </summary>
+        public const string PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+
+        /// <summary>
+        /// .rar, RAR archive
+        /// </summary>
+        public const string RAR = "application/vnd.rar";
+        /// <summary>
+        /// .rtf, Rich Text Format(RTF)
+        /// </summary>
+        public const string RTF = "application/rtf";
+
+        /// <summary>
+        /// .sh, Bourne shell script
+        /// </summary>
+        public const string SH = "application/x-sh";
+        /// <summary>
+        /// .svg, Scalable Vector Graphics(SVG)
+        /// </summary>
+        public const string SVG = "image/svg+xml";
+        /// <summary>
+        /// .swf, Small web format(SWF) or Adobe Flash document
+        /// </summary>
+        public const string SWF = "application/x-shockwave-flash";
+
+        /// <summary>
+        /// .tar, Tape Archive(TAR)
+        /// </summary>
+        public const string TAR = "application/x-tar";
+        /// <summary>
+        /// .tif, Tagged Image File Format(TIFF)
+        /// </summary>
+        public const string TIF = "image/tiff";
+        /// <summary>
+        /// .tiff, Tagged Image File Format(TIFF)
+        /// </summary>
+        public const string TIFF = "image/tiff";
+        /// <summary>
+        /// .ts, MPEG transport stream
+        /// </summary>
+        public const string TS = "video/mp2t"; 
+        /// <summary>
+        /// .ttf, TrueType Font
+        /// </summary>
+        public const string TTF = "font/ttf"; 
+        /// <summary>
+        /// .txt, Text, (generally ASCII or ISO 8859 - n)
+        /// </summary>
+        public const string TXT = "text/plain";
+
+        /// <summary>
+        /// .vsd, Microsoft Visio
+        /// </summary>
+        public const string VSD = "application/vnd.visio";
+
+        /// <summary>
+        /// .wav, Waveform Audio Format
+        /// </summary>
+        public const string WAV = "audio/wav";
+        /// <summary>
+        ///  .weba, WEBM audio
+        /// </summary>
+        public const string WEBA = "audio/webm";
+        /// <summary>
+        /// .webm, WEBM video
+        /// </summary>
+        public const string WEBM = "video/webm";
+        /// <summary>
+        /// .webp, WEBP image
+        /// </summary>
+        public const string WEBP = "image/webp";
+        /// <summary>
+        /// .woff, Web Open Font Format(WOFF)
+        /// </summary>
+        public const string WOFF = "font/woff"; 
+        /// <summary>
+        ///  .woff2, Web Open Font Format(WOFF)
+        /// </summary>
+        public const string WOFF2 = "font/woff2";
+
+        /// <summary>
+        /// .xhtml, XHTML
+        /// </summary>
+        public const string XHTML = "application/xhtml+xml"; // 
+        /// <summary>
+        /// .xls, Microsoft Excel
+        /// </summary>
+        public const string XLS = "application/vnd.ms-excel"; // 
+        /// <summary>
+        /// .xlsx, Microsoft Excel(OpenXML)   
+        /// </summary>
+        public const string XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        /// <summary>
+        /// .xml, XML  if not readable from casual users(RFC 3023, section 3)
+        /// </summary>
+        public const string XML_NOTREADABLE = "application/xml";
+        /// <summary>
+        /// if readable from casual users(RFC 3023, section 3)
+        /// </summary>
+        public const string XML_READABLE = "text/xml";
+        /// <summary>
+        /// .xul, XUL
+        /// </summary>
+        public const string XUL = "application/vnd.mozilla.xul+xml";
+
+        /// <summary>
+        /// .zip, ZIP archive
+        /// </summary>
+        public const string ZIP = "application/zip"; //
 
         public static string GetByExtension(string extension)
         {

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITFCode.Extensions.DateTimeOffsetExtendors.Tests.Base;
 
 namespace ITFCode.Extensions.DateTimeOffsetExtendors.Tests
 {
-    public class DateTimeOffset_DayOfWeekLast_Tests
+    public class DateTimeOffset_DayOfWeekLast_Tests : DateTimeOffset_Base_Tests
     {
         #region Tests
 

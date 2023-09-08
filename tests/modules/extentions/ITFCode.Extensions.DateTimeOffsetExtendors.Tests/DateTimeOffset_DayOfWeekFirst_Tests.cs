@@ -1,6 +1,8 @@
+using ITFCode.Extensions.DateTimeOffsetExtendors.Tests.Base;
+
 namespace ITFCode.Extensions.DateTimeOffsetExtendors.Tests
 {
-    public class DateTimeOffsetExtensions_Tests
+    public class DateTimeOffsetExtensions_Tests : DateTimeOffset_Base_Tests
     {
         #region Tests 
 

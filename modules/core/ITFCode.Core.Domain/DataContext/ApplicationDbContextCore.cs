@@ -10,10 +10,16 @@ namespace ITFCode.Core.Domain.DataContext
     public abstract class ApplicationDbContextCore : IdentityDbContext<ApplicationUser, ApplicationRole, string, ApplicationUserClaim,
         ApplicationUserRole, ApplicationUserLogin, ApplicationRoleClaim, ApplicationUserToken>, IApplicationDbContextCore
     {
+        #region Constructors 
+
         public ApplicationDbContextCore(DbContextOptions options)
             : base(options)
         {
         }
+
+        #endregion
+
+        #region Protected Methods 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +44,7 @@ namespace ITFCode.Core.Domain.DataContext
                     modelBuilder.ApplyConfiguration(instance);
                 });
         }
-    }
 
+        #endregion
+    }
 }

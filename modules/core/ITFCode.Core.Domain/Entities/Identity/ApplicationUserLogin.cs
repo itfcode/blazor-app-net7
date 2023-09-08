@@ -6,5 +6,4 @@ namespace ITFCode.Core.Domain.Entities.Identity
     {
         public virtual ApplicationUser User { get; set; }
     }
-
 }
